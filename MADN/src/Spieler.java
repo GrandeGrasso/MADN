@@ -1,7 +1,7 @@
 
 public class Spieler {
 
-	private Würfel wu;
+	private Wuerfel wu;
 	
 	private Spielfigur sf;
 	

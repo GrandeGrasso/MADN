@@ -1,11 +1,11 @@
 
-public class Würfel {
+public class Wuerfel {
 
 	private Spieler sp;
 	private int min = 1;
 	private int max = 7;
 	
-	public Würfel(){
+	public Wuerfel(){
 		
 	}
 	
@@ -18,7 +18,7 @@ public class Würfel {
 		
 	public static void main(String[] args){
 		
-		Würfel wue = new Würfel();
+		Wuerfel wue = new Wuerfel();
 		System.out.println(wue.wuerfeln());
 		
 	}
