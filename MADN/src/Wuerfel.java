@@ -8,7 +8,7 @@ public class Wuerfel {
 		
 	}
 	
-	private int wuerfeln(){
+	public static int wuerfeln(){
 		
 
 		return (int)((Math.random()*6)+1);

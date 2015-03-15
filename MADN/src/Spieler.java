@@ -3,11 +3,12 @@ public class Spieler {
 
 	
 	private String name;
-	private Wuerfel wuerfel;
+	private Wuerfel w;
 	private static final int spielfigurMax =4 ;
 	private static Spielfigur[] spielfigur = new Spielfigur[spielfigurMax];
 	private static int spielfigurAnz=0;
 	private Farben farbeFigur;
+	private boolean gewonnen;
 	
 	
 
@@ -38,10 +39,12 @@ public class Spieler {
 	public Spieler(String name, Farben farbeFigur){
 		setName(name);
 		setFarbeFigur(farbeFigur);
+		System.out.println("Spieler hat eine " +  Wuerfel.wuerfeln()  + " geworfen");;
 		
 	}
 	
-	
+
+
 	public static void figurHinzufuegen(Spielfigur sf){
 		
 		if(spielfigurAnz < spielfigurMax){
@@ -54,6 +57,9 @@ public class Spieler {
 		return spielfigurAnz;
 	}
 	
+	
+	
+	
 	@Override
 	public String toString(){
 		return "SpielerName "+getName()+", "+getName()+" mit der Farbe "+getFarbeFigur();
@@ -65,6 +71,8 @@ public class Spieler {
 		Spieler s=(Spieler)o;
 		return (s.getName()==this.getName());
 	}
+	
+	
 
 	
 	
