@@ -1,10 +1,34 @@
 
 public class Spielfigur {
 
-	private Spieler sp;
+	private Spieler spieler;
+	private Spielbrett spielbrett;
+	private Farben farbeFigur;
+
 	
-	private Spielbrett sb;
 	
+	
+	public Spielbrett getSpielbrett() {
+		return spielbrett;
+	}
+
+	public void setSpielbrett(Spielbrett spielbrett) {
+		this.spielbrett = spielbrett;
+	}
+	
+
+	public Farben getFarbeFigur() {
+		return farbeFigur;
+	}
+
+	public void setFarbeFigur(Farben farbeFigur) {
+		this.farbeFigur = farbeFigur;
+	}
+	
+	// Funktioniert noch nicht 
+	public Spielfigur(Farben farbeFigur){
+		   farbeFigur = Farben.waehleFarbe();
+		}
 	
 	
 }
