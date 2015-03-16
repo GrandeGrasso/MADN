@@ -62,7 +62,7 @@ public class Spieler {
 	
 	@Override
 	public String toString(){
-		return "SpielerName "+getName()+", "+getName()+" mit der Farbe "+getFarbeFigur();
+		return "Spieler "+ getName()+" mit der Farbe "+getFarbeFigur();
 	}
 	
 	@Override

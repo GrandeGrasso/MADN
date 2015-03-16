@@ -25,10 +25,7 @@ public class Spielfigur {
 		this.farbeFigur = farbeFigur;
 	}
 	
-	// Funktioniert noch nicht 
-	public Spielfigur(Farben farbeFigur){
-		   farbeFigur = Farben.waehleFarbe();
-		}
+
 	
 	
 }
