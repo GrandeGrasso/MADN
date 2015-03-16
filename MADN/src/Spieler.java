@@ -19,7 +19,7 @@ public class Spieler {
 	public void setName(String name) {
 
 	  	if ((name==null)||(name.length()<2)){
-	  	throw new IllegalArgumentException("setName:ungültige Eingabe");
+	  	throw new IllegalArgumentException("setName:ungï¿½ltige Eingabe");
 		
 	  	}
 	  	this.name=name;
@@ -39,7 +39,7 @@ public class Spieler {
 	public Spieler(String name, Farben farbeFigur){
 		setName(name);
 		setFarbeFigur(farbeFigur);
-		System.out.println("Spieler hat eine " +  Wuerfel.wuerfeln()  + " geworfen");;
+		System.out.println("Spieler hat eine " +  Wuerfel.werfen()  + " geworfen");;
 		
 	}
 	
