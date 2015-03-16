@@ -6,7 +6,7 @@ public enum Farben {
 	ROT, BLAU, GELB, GRUEN;
 	
 	
-	
+	//Methode für die zufällige Ausgabe
 	public static Farben waehleFarbe(){
 	    Farben[] farben = Farben.values();
 	    Random generator = new Random();
