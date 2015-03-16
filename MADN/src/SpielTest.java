@@ -8,12 +8,6 @@ public class SpielTest {
 		Spieler s1 = new Spieler("kathi", Farben.BLAU);
 		
 		
-		
-		
-		
-		System.out.println(s1);
-		
-		
 	}
 
 }
