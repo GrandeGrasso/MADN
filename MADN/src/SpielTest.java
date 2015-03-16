@@ -11,6 +11,7 @@ public class SpielTest {
 		
 		
 		
+		System.out.println(s1);
 		
 		
 	}
