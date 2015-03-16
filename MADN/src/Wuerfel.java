@@ -8,19 +8,12 @@ public class Wuerfel {
 		
 	}
 	
-	public static int wuerfeln(){
+	public static int werfen(){
 		
 
 		return (int)((Math.random()*6)+1);
 		
 					}
-		
-	public static void main(String[] args){
-		
-		Wuerfel wue = new Wuerfel();
-		System.out.println(wue.wuerfeln());
-		
-	}
 	
 	}
 	
