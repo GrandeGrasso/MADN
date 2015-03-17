@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Spieler {
  
 	/**
-	 * Deklaration des Namens des Spielers, und seinen Würfel
+	 * Deklaration des Namens des Spielers, und seinen Wuerfel
 	 * Anzahl der maximalen Spielfiguren
 	 * 
 	 */
@@ -30,7 +30,7 @@ public class Spieler {
 	
 	
 	 /**
-     * Liefert den Namen eines Spielers zurück
+     * Liefert den Namen eines Spielers zurueck
      * @return    Name des Spielers
      */
 	public String getName() {
@@ -40,7 +40,7 @@ public class Spieler {
 	 /**
      * Setzt den Namen des Spielers
      * @param   name
-     * @throws Exception  Überprüfung der Länge des Namens 
+     * @throws Exception  Ueberpruefung der Laenge des Namens 
      */
 
 	public void setName(String name) {
@@ -64,7 +64,7 @@ public class Spieler {
 	}  
 	
 	  /**
-     * Konstruktor für die Klasse Spieler
+     * Konstruktor fuer die Klasse Spieler
      * @param name des Spielers
      * @param farbeFigur auswahl der Farbe
      * Ausgabe des Spielernamen und die entsprechende Wurfzahl
@@ -85,7 +85,7 @@ public class Spieler {
 	}
 	
 	/**
-	 * Anzahl der Spielfiguren wird erhöht, bis max erreicht
+	 * Anzahl der Spielfiguren wird erhoeht, bis max erreicht
 	 * @param sf Anzahl wird  sf zugewiesen
 	 */
 
@@ -108,7 +108,6 @@ public class Spieler {
 	
 	/**
 	* @return einen String, der das Objekt verdeutlicht
-	*
 	* @see Object#toString()
 	*/
 	
