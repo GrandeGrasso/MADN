@@ -7,7 +7,7 @@ public class Spielbrett {
 	
 	/**
 	* Spielbrett Klasse, Definiert das Spielbrett
-	* @author Stefano Grasso
+	* @author Gruppe B-5
 	* @version 1.0
 	*
 	*/
