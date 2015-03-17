@@ -7,10 +7,26 @@ public class Spielbrett {
 	
 	/**
 	* Spielbrett Klasse, Definiert das Spielbrett
-	* @author Gruppe B1
+	* @author Stefano Grasso
 	* @version 1.0
 	*
 	*/
+	
+	/**
+	 * Attribute
+	 * 
+	 * @param Spielfigur Spielbrett kennt Spielfigur
+	 * @param Spielfeld Spielbrett kennt Spielfeld
+	 * @param spielbrett Verkettete Liste aus Spielfeldern, ergibt das Spielbrett
+	 * @param startrot Verkettete Liste aus Spielfeldern, Startfelder für Farbe Rot
+	 * @param zielrot Verkettete Liste aus Spielfeldern, Zielfelder für Farbe Rot
+	 * @param startgruen Verkettete Liste aus Spielfeldern, Startfelder für Farbe Grün
+	 * @param zielgruen Verkettete Liste aus Spielfeldern, Zielfelder für Farbe Grün
+	 * @param startblau Verkettete Liste aus Spielfeldern, Startfelder für Farbe Blau
+	 * @param zielblau Verkettete Liste aus Spielfeldern, Zielfelder für Farbe Blau
+	 * @param startgelb Verkettete Liste aus Spielfeldern, Startfelder für Farbe Gelb
+	 * @param zielgelb Verkettete Liste aus Spielfeldern, Zielfelder für Farbe Gelb
+	 */
 
 	private Spielfigur sfigur;
 	private Spielfeld sfeld;
@@ -23,6 +39,12 @@ public class Spielbrett {
 	private static final LinkedList<Spielfeld> zielblau = new LinkedList<Spielfeld>();
 	private static final LinkedList<Spielfeld> startgelb = new LinkedList<Spielfeld>();
 	private static final LinkedList<Spielfeld> zielgelb = new LinkedList<Spielfeld>();
+	
+	/**
+	 * Konstruktor
+	 * 
+	 * @param sfeld Spielfeld wird an Konstruktor übergeben
+	 */
 	
 	public Spielbrett(Spielfeld sfeld){	
 		
