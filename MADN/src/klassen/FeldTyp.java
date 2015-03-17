@@ -2,6 +2,7 @@ package klassen;
 
 public enum FeldTyp {
 
-	Startfeld, Zielfeld, Lauffeld
+	Startfeld, Zielfeld, Lauffeld, Homefeld;
+	
 	
 }

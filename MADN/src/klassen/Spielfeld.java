@@ -2,6 +2,7 @@ package klassen;
 
 public class Spielfeld {
 
+
 	/**
 	* Spielfeld, Definiert ein Spielfeld
 	* @author Gruppe B-5
@@ -9,7 +10,7 @@ public class Spielfeld {
 	*
 	*/
 	
-	private FeldTyp feldtyp;
+	private FeldTyp feldtyp = null;
 	private int ID;
 	private Spielfigur sfigur;
 	
@@ -37,7 +38,10 @@ public class Spielfeld {
 	 */
 	
 	private void setFeldTyp(FeldTyp feldtyp){
-			
+		
+		if(feldtyp==null){
+			throw new RuntimeException("Ungültige Eingabe!");
+		}
 		this.feldtyp = feldtyp;
 
 	}
@@ -53,6 +57,24 @@ public class Spielfeld {
 		this.ID = ID;
 		
 	}
+	
+	public FeldTyp getFeldTyp() {
+		
+		return this.feldtyp;
+	}
+	
+	
+	public int getID() {
+		
+		return this.ID;
+	}
+
+	@Override
+	public String toString(){
+		
+		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
+	}
+
 	
 	
 }
