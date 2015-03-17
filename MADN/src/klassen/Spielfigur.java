@@ -1,9 +1,13 @@
+package klassen;
+
 
 public class Spielfigur {
 
 	private Spieler spieler;
 	private Spielbrett spielbrett;
 	private Farben farbeFigur;
+	private int figurID;
+	private int position;
 
 	
 	
@@ -12,7 +16,7 @@ public class Spielfigur {
 		return spielbrett;
 	}
 
-	public void setSpielbrett(Spielbrett spielbrett) {
+	public void setSpielbrett(Spielbrett spielbrett)  {
 		this.spielbrett = spielbrett;
 	}
 	
@@ -25,7 +29,9 @@ public class Spielfigur {
 		this.farbeFigur = farbeFigur;
 	}
 	
-
+	public Spielfigur(Farben farbe){
+	setFarbeFigur(farbeFigur);
+}
 	
 	
 }

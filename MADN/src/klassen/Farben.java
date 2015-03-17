@@ -1,3 +1,4 @@
+package klassen;
 import java.util.Random;
 
 

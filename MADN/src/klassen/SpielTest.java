@@ -1,3 +1,5 @@
+package klassen;
+
 
 public class SpielTest {
 
@@ -7,11 +9,7 @@ public class SpielTest {
 		
 		Spieler s1 = new Spieler("kathi", Farben.BLAU);
 		
-		Spielfeld sf = new Spielfeld();
 		
-		Spielbrett sb = new Spielbrett(sf);
-
-
 	}
 
 }

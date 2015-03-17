@@ -1,3 +1,5 @@
+package klassen;
+
 import java.util.LinkedList;
 
 
