@@ -39,9 +39,6 @@ public class Spielfeld {
 	
 	private void setFeldTyp(FeldTyp feldtyp){
 		
-		if(feldtyp==null){
-			throw new RuntimeException("Ungültige Eingabe!");
-		}
 		this.feldtyp = feldtyp;
 
 	}
