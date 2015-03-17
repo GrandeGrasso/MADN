@@ -12,8 +12,8 @@ public class Wuerfel {
 	
 	/**
 	 * Attribute
-	 * @param Spieler WÃ¼rfel kennt den Spieler
-	 * @param Zahl des Würfels
+	 * @param Spieler Wuerfel kennt den Spieler
+	 * @param Zahl des Wuerfels
 	 */
 	
 	private Spieler sp;
