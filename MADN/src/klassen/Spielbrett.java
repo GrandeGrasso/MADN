@@ -18,8 +18,6 @@ public class Spielbrett {
 	 * @param spielbrett Verkettete Liste aus Spielfeldern, ergibt das Spielbrett
 	 */
 	
-	private Spielfeld sfeld;
-	
 	private static LinkedList<Spielfeld> spielbrett;
 	private static Spielfeld homerot[];
 	private static Spielfeld zielrot[];
@@ -32,6 +30,7 @@ public class Spielbrett {
 	
 	/**
 	 * Konstruktor
+	 * 
 	 * Spielbrett wird erzeugt
 	 * 
 	 * @param spielbrett
@@ -59,7 +58,7 @@ public class Spielbrett {
 
 	/**
 	 * 
-	 * Methode befuelleSpielbrett 
+	 * Methode befuelleSpielbrett()
 	 * 
 	 * Setzt Spielfelder auf das Spielbrett
 	 * 
@@ -84,6 +83,15 @@ public class Spielbrett {
 		}		
 		
 	}
+	
+	/**
+	 * 
+	 * Methode befuelleZiel()
+	 * 
+	 * Befüllt die Arrays der Zielfelder, der einzelnen Farben mit Spielfeldern vom Typ Zielfeld.
+	 * 
+	 */
+	
 	private void befuelleZiel(){
 		
 		for(int i=0;i<zielrot.length;i++){
@@ -111,6 +119,14 @@ public class Spielbrett {
 	
 }
 	
+	/**
+	 * 
+	 * Methode befuelleHome()
+	 * 
+	 * Befuellt die Arrays der Homefelder, der einzelnen Farben, mit Spielfeldern vom Typ Homefeld
+	 * 
+	 */
+	
 	private void befuelleHome(){
 		
 		for(int i=0;i<homerot.length;i++){
@@ -137,6 +153,15 @@ public class Spielbrett {
 	}
 	
 }
+	
+	/**
+	 * 
+	 * Methode getSpielbrett()
+	 * 
+	 * Gibt das gesamte Spielbrett zurück
+	 * 
+	 * @return String des Spielbretts
+	 */
 	
 public String getSpielbrett(){
 	
