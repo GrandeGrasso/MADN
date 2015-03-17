@@ -1,68 +1,58 @@
 package klassen;
 
 public class Spielfeld {
-	
+
 	/**
-	* Spielfeld Klasse, Definiert das Spielfeld
+	* Spielfeld, Definiert ein Spielfeld
 	* @author Gruppe B-5
 	* @version 1.0
 	*
 	*/
 	
+	private FeldTyp feldtyp;
+	private int ID;
+	private Spielfigur sfigur;
+	
 	
 	/**
-	 *  Die ID beschreibt den eindeutigen Namen eines Spielfeldes
-	 */
-	int id; 
-	
-	 /**
-	 * Konstruktor
-	 * ID wird erzeugt
-	 * 
-	 * @param id wird an Konstruktor übergeben
-	 */
-	public Spielfeld(){ 
-		this.id=id;	
-	}
-	
-	/**
-	 * Getter
+	 *  Konstruktor
+	 *  
+	 *  @param feldtyp Gibt dem Feld einen Typ (Start-, Ziel-,Lauffeld)
+	 *  @param ID Weißt dem Feld eine ID zu
 	 */
 
-	public int getId() {
-		return id;
-	}
-	/**
-	 * Setter ist privat damit die ID nicht veändert werden kann
-	 */
-	private void setId(int id){
+	
+	public Spielfeld(FeldTyp feldtyp, int ID){ 
 		
-		this.id=id;
+		setFeldTyp(feldtyp);
+		setID(ID);
+		
 	}
 	
+
+	/**
+	 * Setter Feldtyp
+	 * 
+	 * @param feldtyp Gibt dem Feld einen Typ (Starfeld, Zielfeld, Lauffeld)
+	 */
+	
+	private void setFeldTyp(FeldTyp feldtyp){
+			
+		this.feldtyp = feldtyp;
+
+	}
 	
 	/**
-	 * Überprüfung ob ein Feld eine Figur hat 
-	 * @return gibt true oder false
+	 * Setter ID
+	 * 
+	 * @param ID Setzt Integer als ID
 	 */
-//	public boolean hatFigur(){
-//		
-//		if (id != null)
-//		
-//		return true;
-//	}
 	
-	
-	
-	
-	
-	/**
-	 *  Mit der toString Methode wird die ID übergeben
-	 */
-	public String toString(){
-		return "Das Spielfeld hat die ID: " + id;
+	private void setID(int ID){
+		
+		this.ID = ID;
+		
 	}
 	
 	
 }
-
