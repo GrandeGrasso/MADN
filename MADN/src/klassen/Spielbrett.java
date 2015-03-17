@@ -30,23 +30,35 @@ public class Spielbrett {
 
 	private Spielfigur sfigur;
 	private Spielfeld sfeld;
-	private static final LinkedList<Spielfeld> spielbrett = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> startrot = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> zielrot = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> startgruen = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> zielgruen = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> startblau = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> zielblau = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> startgelb = new LinkedList<Spielfeld>();
-	private static final LinkedList<Spielfeld> zielgelb = new LinkedList<Spielfeld>();
+	private static LinkedList<Spielfeld> spielbrett;
+	private static LinkedList<Spielfeld> startrot;
+	private static LinkedList<Spielfeld> zielrot ;
+	private static LinkedList<Spielfeld> startgruen;
+	private static LinkedList<Spielfeld> zielgruen;
+	private static LinkedList<Spielfeld> startblau;
+	private static LinkedList<Spielfeld> zielblau;
+	private static LinkedList<Spielfeld> startgelb;
+	private static LinkedList<Spielfeld> zielgelb;
 	
 	/**
 	 * Konstruktor
+	 * Spielfelder werden erzeugt
 	 * 
 	 * @param sfeld Spielfeld wird an Konstruktor übergeben
 	 */
 	
 	public Spielbrett(Spielfeld sfeld){	
+		
+		spielbrett = new LinkedList<Spielfeld>();
+		startrot = new LinkedList<Spielfeld>();
+		zielrot = new LinkedList<Spielfeld>();
+		startgruen = new LinkedList<Spielfeld>();
+		zielgruen = new LinkedList<Spielfeld>();
+		startblau = new LinkedList<Spielfeld>();
+		zielblau = new LinkedList<Spielfeld>();
+		startgelb = new LinkedList<Spielfeld>();
+		zielgelb = new LinkedList<Spielfeld>();
+		
 		
 		for (int i = 0; i<40; i++){
 			spielbrett.add(sfeld);
