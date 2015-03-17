@@ -3,13 +3,23 @@ package klassen;
 public class Spielfeld {
 	
 	/**
+	* Spielfeld Klasse, Definiert das Spielfeld
+	* @author Gruppe B-5
+	* @version 1.0
+	*
+	*/
+	
+	
+	/**
 	 *  Die ID beschreibt den eindeutigen Namen eines Spielfeldes
 	 */
 	int id; 
 	
-
-	/**
-	 *  Konstruktor
+	 /**
+	 * Konstruktor
+	 * ID wird erzeugt
+	 * 
+	 * @param id wird an Konstruktor übergeben
 	 */
 	public Spielfeld(){ 
 		this.id=id;	
@@ -27,20 +37,20 @@ public class Spielfeld {
 	 */
 	private void setId(int id){
 		
-		if (id<0){
-	  	throw new IllegalArgumentException("Ungültige ID");
-		
-	  	}
 		this.id=id;
 	}
 	
 	
 	/**
-	 * Überprüfung ob ein Feld eine Figur hat
+	 * Überprüfung ob ein Feld eine Figur hat 
+	 * @return gibt true oder false
 	 */
-	public boolean hatFigur(){
-		return true;
-	}
+//	public boolean hatFigur(){
+//		
+//		if (id != null)
+//		
+//		return true;
+//	}
 	
 	
 	
