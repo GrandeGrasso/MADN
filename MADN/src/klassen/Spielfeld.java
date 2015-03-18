@@ -50,18 +50,6 @@ public class Spielfeld {
 	}
 	
 	/**
-	 * Setter ID
-	 * 
-	 * @param ID Spielfeld ID, Integer
-	 */
-	
-	private void setID(int ID){
-		
-		this.ID = ID;
-		
-	}
-	
-	/**
 	 * Setter Spielfigur
 	 * 
 	 * @param sfigur Spielfigur
