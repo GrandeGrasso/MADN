@@ -23,10 +23,11 @@ public class Spielfeld {
 	 */
 
 	
-	public Spielfeld(FeldTyp feldtyp, int ID){ 
+	public Spielfeld(FeldTyp feldtyp, int ID, Spielfigur sfigur){ 
 		
 		setFeldTyp(feldtyp);
 		setID(ID);
+		setSfigur(sfigur);
 		
 	}
 	
@@ -52,6 +53,12 @@ public class Spielfeld {
 	private void setID(int ID){
 		
 		this.ID = ID;
+		
+	}
+	
+	private void setSfigur(Spielfigur sfigur){
+		
+		this.sfigur = sfigur;
 		
 	}
 	
