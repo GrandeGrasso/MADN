@@ -19,44 +19,68 @@ public class Spielfigur {
 	 */
 	
 	private Spieler spieler;
-	private Spielbrett spielbrett;
+	private Spielfeld sfeld;
 	private Farben farbeFigur;
-	private int figurID;
-	private int position;
+	private int id;
+	private int pos;
 
-	
-	
-	
-	public Spielbrett getSpielbrett() {
-		return spielbrett;
+	public Spielfigur(Spieler spieler, Farben farbeFigur, int id, int pos, Spielfeld sfeld){
+		
+		setSpieler(spieler);
+		setFarbe(farbeFigur);
+		setID(id);
+		setPos(pos);
+		setSpielfeld(sfeld);
+			
 	}
 
-	public void setSpielbrett(Spielbrett spielbrett)  {
-		this.spielbrett = spielbrett;
+	private void setSpielfeld(Spielfeld sfeld) {	
+		this.sfeld = sfeld;
+		
 	}
-	
+
+	private void setPos(int pos) {	
+		this.pos = pos;
+		
+	}
+
+	private void setID(int id) {		
+		this.id = id;
+		
+	}
+
+	private void setFarbe(Farben farbeFigur) {	
+		this.farbeFigur = farbeFigur;
+		
+	}
+
+	private void setSpieler(Spieler spieler) {		
+		this.spieler = spieler;		
+	}
+
+	public Spieler getSpieler() {		
+		return spieler;
+	}
+
+	public Spielfeld getSfeld() {
+		return sfeld;
+	}
 
 	public Farben getFarbeFigur() {
 		return farbeFigur;
 	}
 
-	public void setFarbeFigur(Farben farbeFigur) {
-		this.farbeFigur = farbeFigur;
+	public int getId() {
+		return id;
+	}
+
+	public int getPos() {
+		return pos;
 	}
 	
-	public Spielfigur(Farben farbe){
-	setFarbeFigur(farbeFigur);
-	
-}
-	
-	/**
-	 * Methode setzen der Figur aufs Spielfeld
-	 * @return aktuelle position
-	 */
-	
-	public int setzen(){
-		return position;
-			
+	@Override
+	public String toString() {
+		return "";	
 	}
 	
 }

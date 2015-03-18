@@ -18,8 +18,9 @@ public class Spielfeld {
 	/**
 	 *  Konstruktor
 	 *  
-	 *  @param feldtyp Gibt dem Feld einen Typ (Start-, Ziel-,Lauffeld)
+	 *  @param feldtyp Gibt dem Feld einen Typ (Start-, Ziel-,Lauf-, Homefeld)
 	 *  @param ID Weißt dem Feld eine ID zu
+	 *  @param sfigur Weißt dem Spielfeld eine Spielfigur zu
 	 */
 
 	
@@ -47,7 +48,7 @@ public class Spielfeld {
 	/**
 	 * Setter ID
 	 * 
-	 * @param ID Setzt Integer als ID
+	 * @param ID Spielfeld ID, Integer
 	 */
 	
 	private void setID(int ID){
@@ -56,27 +57,57 @@ public class Spielfeld {
 		
 	}
 	
+	/**
+	 * Setter Spielfigur
+	 * 
+	 * @param sfigur Spielfigur
+	 */
+	
 	private void setSfigur(Spielfigur sfigur){
 		
 		this.sfigur = sfigur;
 		
 	}
 	
+	/**
+	 * Getter FeldTyp
+	 * 
+	 * @return Gibt den FeldTyp zurück (Start-, Ziel-, Lauf-, Homefeld)
+	 */
+	
 	public FeldTyp getFeldTyp() {
 		
 		return this.feldtyp;
 	}
 	
+	/**
+	 * 
+	 * Getter ID
+	 * 
+	 * @return Gibt die SpielfeldID zurück
+	 */
 	
 	public int getID() {
 		
 		return this.ID;
 	}
+	
+	/**
+	 * Getter Spielfigur
+	 * 
+	 * @return Gibt die auf dem Spielfeld vorhandene Spielfigur zurück
+	 */
+	
+	public Spielfigur getSfigur(){
+		
+		return this.sfigur;
+		
+	}
 
 	@Override
 	public String toString(){
 		
-		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
+		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp()+" Spielfigur: "+this.getSfigur()+" | ";
 	}
 
 	
