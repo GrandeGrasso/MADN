@@ -14,21 +14,18 @@ public class Spielfigur {
 	 * @param Spieler Instanz
 	 * @param Spielbrett Instanz
 	 * @param Spieler hat eine Farbe aus Enum
-	 * @param figurID
 	 * @param position
 	 */
 	
 	private Spieler spieler;
 	private Spielfeld sfeld;
 	private Farben farbeFigur;
-	private int id;
 	private int pos;
 
-	public Spielfigur(Spieler spieler, Farben farbeFigur, int id, int pos, Spielfeld sfeld){
+	public Spielfigur(Spieler spieler, Farben farbeFigur, int pos, Spielfeld sfeld){
 		
 		setSpieler(spieler);
 		setFarbe(farbeFigur);
-		setID(id);
 		setPos(pos);
 		setSpielfeld(sfeld);
 			
@@ -41,11 +38,6 @@ public class Spielfigur {
 
 	private void setPos(int pos) {	
 		this.pos = pos;
-		
-	}
-
-	private void setID(int id) {		
-		this.id = id;
 		
 	}
 
@@ -68,10 +60,6 @@ public class Spielfigur {
 
 	public Farben getFarbeFigur() {
 		return farbeFigur;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public int getPos() {

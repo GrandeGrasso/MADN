@@ -11,6 +11,7 @@ public class Spielfeld {
 	*/
 	
 	private FeldTyp feldtyp = null;
+	private static int counter = 0;
 	private int ID;
 	private Spielfigur sfigur;
 	
@@ -24,11 +25,14 @@ public class Spielfeld {
 	 */
 
 	
-	public Spielfeld(FeldTyp feldtyp, int ID, Spielfigur sfigur){ 
+	public Spielfeld(FeldTyp feldtyp, Spielfigur sfigur){ 
 		
 		setFeldTyp(feldtyp);
-		setID(ID);
 		setSfigur(sfigur);
+		
+		counter++;
+		ID = counter;
+		
 		
 	}
 	
