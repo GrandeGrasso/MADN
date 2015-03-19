@@ -68,7 +68,7 @@ public class Spielfigur {
 	
 	@Override
 	public String toString() {
-		return "";	
+		return "Spielfigur von: "+this.getSpieler()+" Farbe: "+this.getFarbeFigur()+" Position: "+this.getPos();	
 	}
 	
 }

@@ -30,6 +30,7 @@ public class Spielfeld {
 		setFeldTyp(feldtyp);
 		setSfigur(sfigur);
 		
+		
 		counter++;
 		ID = counter;
 		
@@ -93,6 +94,19 @@ public class Spielfeld {
 	public Spielfigur getSfigur(){
 		
 		return this.sfigur;
+		
+	}
+	
+	public boolean hatSfigur(){
+		
+		if(this.sfigur!=null) return true;
+		else return false;		
+		
+	}
+	
+	public void addSpielfigur(Spielfigur sfigur){
+		
+		this.sfigur = sfigur;
 		
 	}
 

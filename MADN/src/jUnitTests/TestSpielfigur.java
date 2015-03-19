@@ -15,7 +15,7 @@ public class TestSpielfigur {
     @BeforeClass
 	 public static void create() {
 	      // Test-Objekt erschaffen mit den Testwerten (Farbe: Rot)
-	    Spielfigur s1 = new Spielfigur(Farben.ROT);
+//	    Spielfigur s1 = new Spielfigur();
 	      System.out.println("Start!");
 	   }
 	

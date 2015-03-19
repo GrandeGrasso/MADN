@@ -7,17 +7,24 @@ public class SpielTest {
 
 	public static void main(String[] args) {
 		
-		Spieler s1 = new Spieler("Kathi", Farben.BLAU);
+		Spieler spieler1 = new Spieler("Kathi", Farben.BLAU);
 		
-		Spielfeld sf1 = new Spielfeld(FeldTyp.Startfeld, null);
+		Spielbrett spielbrett1 = new Spielbrett();
 		
-		Spielbrett sb1 = new Spielbrett();
-		
-		Spielfigur sfigur1 = new Spielfigur(s1, Farben.BLAU, 1, sf1);
-		Spielfigur sfigur2 = new Spielfigur(s1, Farben.BLAU, 2, sf1);
+		Spielfeld spielfeld1 = new Spielfeld(FeldTyp.Startfeld, null);
+		Spielfeld spielfeld2 = new Spielfeld(FeldTyp.Zielfeld, null);
 		
 		
-		//system.out.println(sb1.getSpielbrett());
+		Spielfigur sfigur1 = new Spielfigur(spieler1, Farben.BLAU, spielfeld1.getID(), spielfeld1);
+		Spielfigur sfigur2 = new Spielfigur(spieler1, Farben.BLAU, spielfeld2.getID(), spielfeld2);
+		
+		
+		spielfeld1.addSpielfigur(sfigur1);
+		spielfeld2.addSpielfigur(sfigur2);
+		
+		System.out.println(spielfeld1.getSfigur());
+		System.out.println(spielfeld2.getID());
+		
 		
 		
 	}

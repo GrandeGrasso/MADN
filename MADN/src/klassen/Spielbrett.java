@@ -70,13 +70,13 @@ public class Spielbrett {
 			
 			if( (i==1) || (i==11) || (i==21) || (i==31)){
 				
-				spielbrett.add(new Spielfeld(FeldTyp.Startfeld, i, null));
+				spielbrett.add(new Spielfeld(FeldTyp.Startfeld, null));
 				
 			}
 			
 			if( ((i>1) && (i<11)) || ((i>11) && (i<21)) || ((i>21) && (i<31)) || ((i>31)) ){
 				
-				spielbrett.add(new Spielfeld(FeldTyp.Lauffeld, i, null));
+				spielbrett.add(new Spielfeld(FeldTyp.Lauffeld, null));
 				
 			}
 			
@@ -96,25 +96,25 @@ public class Spielbrett {
 		
 		for(int i=0;i<zielrot.length;i++){
 			
-			zielrot[i]=new Spielfeld(FeldTyp.Zielfeld,i, null);
+			zielrot[i]=new Spielfeld(FeldTyp.Zielfeld, null);
 			
 	}
 	
 		for(int j=0;j<zielblau.length;j++){
 		
-			zielblau[j]=new Spielfeld(FeldTyp.Zielfeld,j, null);
+			zielblau[j]=new Spielfeld(FeldTyp.Zielfeld, null);
 		
 }
 
 		for(int k=0;k<zielgruen.length;k++){
 	
-			zielgruen[k]=new Spielfeld(FeldTyp.Zielfeld,k, null);
+			zielgruen[k]=new Spielfeld(FeldTyp.Zielfeld, null);
 	
 }
 
 		for(int l=0;l<zielgelb.length;l++){
 	
-			zielgelb[l]=new Spielfeld(FeldTyp.Zielfeld,l, null);
+			zielgelb[l]=new Spielfeld(FeldTyp.Zielfeld, null);
 	}
 	
 }
@@ -129,27 +129,29 @@ public class Spielbrett {
 	
 	private void befuelleHome(){
 		
+		//if abfragen für das Setzen der Spielfiguren in der richtigen Farbe
+		
 		for(int i=0;i<homerot.length;i++){
 			
-			homerot[i]=new Spielfeld(FeldTyp.Homefeld, i, null);
+			homerot[i]=new Spielfeld(FeldTyp.Homefeld, null);
 			
 	}
 	
 		for(int j=0;j<homeblau.length;j++){
 		
-			homeblau[j]=new Spielfeld(FeldTyp.Homefeld,j, null);
+			homeblau[j]=new Spielfeld(FeldTyp.Homefeld, null);
 		
 }
 
 		for(int k=0;k<homegruen.length;k++){
 	
-			homegruen[k]=new Spielfeld(FeldTyp.Homefeld,k, null);
+			homegruen[k]=new Spielfeld(FeldTyp.Homefeld, null);
 	
 }
 
 		for(int l=0;l<zielgelb.length;l++){
 	
-			homegelb[l]=new Spielfeld(FeldTyp.Homefeld,l, null);
+			homegelb[l]=new Spielfeld(FeldTyp.Homefeld, null);
 	}
 	
 }
