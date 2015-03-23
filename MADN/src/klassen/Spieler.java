@@ -22,7 +22,7 @@ public class Spieler {
 	private static final int spielfigurMax =4 ;
 	private static Spielfigur[] spielfigur = new Spielfigur[spielfigurMax];
 	private static int spielfigurAnz=0;
-	private Farben farbeFigur;
+	private eFarben farbeFigur;
 //	private boolean gewonnen = false;
 //	private static final int anzahlKIMax=3;
 //	private static KI[] ki=new KI[anzahlKIMax];
@@ -38,11 +38,12 @@ public class Spieler {
 	 * 
 	 */
 	
-	public Spieler(String name, Farben farbeFigur){
+	public Spieler(String name, eFarben farbeFigur){
 		setName(name);
 		setFarbeFigur(farbeFigur);
-		System.out.println("Der Spieler mit dem Namen " +
-				getName() + " hat eine " +  Wuerfel.werfen()  + " geworfen");
+		w = new Wuerfel();
+		System.out.println("Spieler " +
+				this.getName() + " hat eine " +  w.werfen() + " gewürfelt.");
 	}
 	
 	/**
@@ -69,11 +70,11 @@ public class Spieler {
 		return name;
 	}
 	
-	public void setFarbeFigur(Farben farbeFigur) {
+	public void setFarbeFigur(eFarben farbeFigur) {
 		this.farbeFigur=farbeFigur;
 	} 
 	
-	public Farben getFarbeFigur() {
+	public eFarben getFarbeFigur() {
 		return farbeFigur;
 	}
 	

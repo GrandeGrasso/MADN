@@ -1,6 +1,6 @@
 package klassen;
 
-public enum FeldTyp {
+public enum eFeldTyp {
 
 	Startfeld, Zielfeld, Lauffeld, Homefeld;
 	

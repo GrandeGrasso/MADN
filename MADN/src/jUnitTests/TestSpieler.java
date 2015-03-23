@@ -2,7 +2,7 @@ package jUnitTests;
 
 import static org.junit.Assert.*;
 import klassen.Spieler;
-import klassen.Farben;
+import klassen.eFarben;
 
 import org.junit.Assert;
 import org.junit.Before;

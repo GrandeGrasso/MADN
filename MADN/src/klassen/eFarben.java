@@ -2,7 +2,7 @@ package klassen;
 import java.util.Random;
 
 
-public enum Farben {
+public enum eFarben {
 	
 	/**
 	* Farben Enum, Definiert die Spielfarben

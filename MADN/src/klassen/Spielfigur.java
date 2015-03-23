@@ -19,10 +19,10 @@ public class Spielfigur {
 	
 	private Spieler spieler;
 	private Spielfeld sfeld;
-	private Farben farbeFigur;
+	private eFarben farbeFigur;
 	private int pos;
 
-	public Spielfigur(Farben farbeFigur){
+	public Spielfigur(eFarben farbeFigur){
 		
 		setFarbe(farbeFigur);
 			
@@ -38,7 +38,7 @@ public class Spielfigur {
 		
 	}
 
-	private void setFarbe(Farben farbeFigur) {	
+	private void setFarbe(eFarben farbeFigur) {	
 		this.farbeFigur = farbeFigur;
 		
 	}
@@ -55,7 +55,7 @@ public class Spielfigur {
 		return sfeld;
 	}
 
-	public Farben getFarbeFigur() {
+	public eFarben getFarbeFigur() {
 		return farbeFigur;
 	}
 

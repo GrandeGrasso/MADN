@@ -70,13 +70,13 @@ public class Spielbrett {
 			
 			if( (i==1) || (i==11) || (i==21) || (i==31)){
 				
-				spielbrett.add(new Spielfeld(FeldTyp.Startfeld));
+				spielbrett.add(new Spielfeld(eFeldTyp.Startfeld));
 				
 			}
 			
 			if( ((i>1) && (i<11)) || ((i>11) && (i<21)) || ((i>21) && (i<31)) || ((i>31)) ){
 				
-				spielbrett.add(new Spielfeld(FeldTyp.Lauffeld));
+				spielbrett.add(new Spielfeld(eFeldTyp.Lauffeld));
 				
 			}
 			
@@ -96,13 +96,13 @@ public class Spielbrett {
 		
 		for(int i=0;i<zielrot.length;i++){
 			
-			zielrot[i]=new Spielfeld(FeldTyp.Zielfeld);
+			zielrot[i]=new Spielfeld(eFeldTyp.Zielfeld);
 		
-			zielblau[i]=new Spielfeld(FeldTyp.Zielfeld);
+			zielblau[i]=new Spielfeld(eFeldTyp.Zielfeld);
 	
-			zielgruen[i]=new Spielfeld(FeldTyp.Zielfeld);
+			zielgruen[i]=new Spielfeld(eFeldTyp.Zielfeld);
 
-			zielgelb[i]=new Spielfeld(FeldTyp.Zielfeld);
+			zielgelb[i]=new Spielfeld(eFeldTyp.Zielfeld);
 	}
 	
 }
@@ -121,13 +121,13 @@ public class Spielbrett {
 		
 		for(int i=0;i<homerot.length;i++){
 			
-			homerot[i]=new Spielfeld(FeldTyp.Homefeld);
+			homerot[i]=new Spielfeld(eFeldTyp.Homefeld);
 		
-			homeblau[i]=new Spielfeld(FeldTyp.Homefeld);
+			homeblau[i]=new Spielfeld(eFeldTyp.Homefeld);
 
-			homegruen[i]=new Spielfeld(FeldTyp.Homefeld);
+			homegruen[i]=new Spielfeld(eFeldTyp.Homefeld);
 
-			homegelb[i]=new Spielfeld(FeldTyp.Homefeld);
+			homegelb[i]=new Spielfeld(eFeldTyp.Homefeld);
 	}
 	
 }

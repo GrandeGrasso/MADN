@@ -10,7 +10,7 @@ public class Spielfeld {
 	*
 	*/
 	
-	private FeldTyp feldtyp = null;
+	private eFeldTyp feldtyp = null;
 	private static int counter = 0;
 	private int ID;
 	private boolean hatSpielfigur = false;
@@ -26,7 +26,7 @@ public class Spielfeld {
 	 */
 
 	
-	public Spielfeld(FeldTyp feldtyp){ 
+	public Spielfeld(eFeldTyp feldtyp){ 
 		
 		setFeldTyp(feldtyp);		
 		
@@ -42,7 +42,7 @@ public class Spielfeld {
 	 * @param feldtyp Gibt dem Feld einen Typ (Starfeld, Zielfeld, Lauffeld)
 	 */
 	
-	private void setFeldTyp(FeldTyp feldtyp){
+	private void setFeldTyp(eFeldTyp feldtyp){
 		
 		this.feldtyp = feldtyp;
 
@@ -54,7 +54,7 @@ public class Spielfeld {
 	 * @return Gibt den FeldTyp zurück (Start-, Ziel-, Lauf-, Homefeld)
 	 */
 	
-	public FeldTyp getFeldTyp() {
+	public eFeldTyp getFeldTyp() {
 		
 		return this.feldtyp;
 	}
