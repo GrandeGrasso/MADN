@@ -2,21 +2,14 @@ package klassen;
 
 import java.util.LinkedList;
 
+/**
+ * Spielbrett Klasse, Definiert das Spielbrett
+ * @author Gruppe B-5
+ * @version 1.0
+ *
+ */
 
 public class Spielbrett {
-	
-	/**
-	* Spielbrett Klasse, Definiert das Spielbrett
-	* @author Gruppe B-5
-	* @version 1.0
-	*
-	*/
-	
-	/**
-	 * Attribute
-	 * 
-	 * @param spielbrett Verkettete Liste aus Spielfeldern, ergibt das Spielbrett
-	 */
 	
 	private static LinkedList<Spielfeld> spielbrett;
 	private static Spielfeld homerot[];
@@ -28,14 +21,12 @@ public class Spielbrett {
   private static Spielfeld homegelb[];
   private static Spielfeld zielgelb[];
 	
-	/**
-	 * Konstruktor
-	 * 
-	 * Spielbrett wird erzeugt
-	 * 
-	 * @param spielbrett
-	 * @param befülleSpielbret();
-	 */
+  /**
+   * Konstruktor
+   * 
+   * Erzeugt das Spielbrett als LinkedList und Haus- und Zielfelder als Arrays
+   * 
+   */
 	
 	public Spielbrett(){	
 		
@@ -52,101 +43,78 @@ public class Spielbrett {
 		
 		befuelleSpielbrett();
 		befuelleZiel();
-		befuelleHome();
-		
+		befuelleHome();	
 	}
 
 	/**
 	 * 
 	 * Methode befuelleSpielbrett()
 	 * 
-	 * Setzt Spielfelder auf das Spielbrett
+	 * Setzt Start- und Lauffelder vom gleichnamigen Typ auf das Spielbrett.
 	 * 
 	 */
 	
-	private void befuelleSpielbrett(){
-		
+	private void befuelleSpielbrett(){	
 		for(int i=0;i<=40;i++){
 			
-			if( (i==1) || (i==11) || (i==21) || (i==31)){
-				
-				spielbrett.add(new Spielfeld(eFeldTyp.Startfeld));
-				
+			if( (i==1) || (i==11) || (i==21) || (i==31)){				
+				spielbrett.add(new Spielfeld(eFeldTyp.Startfeld));				
 			}
 			
-			if( ((i>1) && (i<11)) || ((i>11) && (i<21)) || ((i>21) && (i<31)) || ((i>31)) ){
-				
-				spielbrett.add(new Spielfeld(eFeldTyp.Lauffeld));
-				
-			}
-			
-		}		
-		
+			if( ((i>1) && (i<11)) || ((i>11) && (i<21)) || ((i>21) && (i<31)) || ((i>31)) ){				
+				spielbrett.add(new Spielfeld(eFeldTyp.Lauffeld));				
+			}			
+		}				
 	}
 	
 	/**
 	 * 
 	 * Methode befuelleZiel()
 	 * 
-	 * Befüllt die Arrays der Zielfelder, der einzelnen Farben mit Spielfeldern vom Typ Zielfeld.
+	 * Befüllt die Arrays der Zielfelder Spielfeldern vom Typ Zielfeld.
 	 * 
 	 */
 	
-	private void befuelleZiel(){
-		
+	private void befuelleZiel(){		
 		for(int i=0;i<zielrot.length;i++){
 			
-			zielrot[i]=new Spielfeld(eFeldTyp.Zielfeld);
-		
-			zielblau[i]=new Spielfeld(eFeldTyp.Zielfeld);
-	
+			zielrot[i]=new Spielfeld(eFeldTyp.Zielfeld);		
+			zielblau[i]=new Spielfeld(eFeldTyp.Zielfeld);	
 			zielgruen[i]=new Spielfeld(eFeldTyp.Zielfeld);
-
 			zielgelb[i]=new Spielfeld(eFeldTyp.Zielfeld);
-	}
-	
+	}	
 }
 	
 	/**
 	 * 
 	 * Methode befuelleHome()
 	 * 
-	 * Befuellt die Arrays der Homefelder, der einzelnen Farben, mit Spielfeldern vom Typ Homefeld
+	 * Befuellt die Arrays der Homefelder mit Spielfeldern vom Typ Homefeld.
 	 * 
 	 */
 	
-	private void befuelleHome(){
-		
-		//if abfragen für das Setzen der Spielfiguren in der richtigen Farbe
-		
+	private void befuelleHome(){		
 		for(int i=0;i<homerot.length;i++){
 			
-			homerot[i]=new Spielfeld(eFeldTyp.Homefeld);
-		
+			homerot[i]=new Spielfeld(eFeldTyp.Homefeld);	
 			homeblau[i]=new Spielfeld(eFeldTyp.Homefeld);
-
 			homegruen[i]=new Spielfeld(eFeldTyp.Homefeld);
-
 			homegelb[i]=new Spielfeld(eFeldTyp.Homefeld);
-	}
-	
+	}	
 }
 	
 	/**
 	 * 
 	 * Methode getSpielbrett()
 	 * 
-	 * Gibt das gesamte Spielbrett zurück
+	 * Gibt das gesamte Spielbrett zurück.
 	 * 
 	 * @return String des Spielbretts
 	 */
 	
-public String getSpielbrett(){
+	public String getSpielbrett(){	
+			return spielbrett.toString();
 	
-		return spielbrett.toString();
-	
-}
-	
-	
+	}	
 	
 }

@@ -1,20 +1,13 @@
 package klassen;
 
+/**
+ * Wuerfel Klasse, Definiert den Würfel
+ * @author Gruppe B-5
+ * @version 1.0
+ *
+ */
 
 public class Wuerfel {
-
-	/**
-	* Spielbrett Klasse, Definiert das Spielbrett
-	* @author Gruppe B-5
-	* @version 1.0
-	*
-	*/
-	
-	/**
-	 * Attribute
-	 * @param Spieler Wuerfel kennt den Spieler
-	 * @param Zahl des Wuerfels
-	 */
 	
 	private Spieler sp;
 
@@ -22,7 +15,6 @@ public class Wuerfel {
 	/**
 	 * Konstruktor
 	 * 
-	 * @param Defaultkonstruktor
 	 */
 	
 	public Wuerfel(){
@@ -39,17 +31,29 @@ public class Wuerfel {
 		 int augenzahl = (int)((Math.random()*6)+1);
 		 
 			return augenzahl;
-					}
+  }
+	
+	/**
+	 * 
+	 * Öffentlicher Setter für Spieler
+	 * 
+	 * @param spieler Übergabewert vom Typ Spieler
+	 */
 	
 	public void setSpieler(Spieler spieler){
-		this.sp = spieler;
-		
+		this.sp = spieler;	
 	}
+	
+	/**
+	 * Getter für Spieler
+	 * 
+	 * @return Gibt den Spieler des Würfels zurück
+	 */
 	
 	public Spieler getSpieler(){
 		return this.sp;
 	}
 	
-	}
+}
 	
 

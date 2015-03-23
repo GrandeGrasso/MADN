@@ -1,51 +1,41 @@
 package klassen;
 
+/**
+ * Spielfeld, Definiert ein Spielfeld
+ * @author Gruppe B-5
+ * @version 1.0
+ *
+ */
+
 public class Spielfeld {
-
-
-	/**
-	* Spielfeld, Definiert ein Spielfeld
-	* @author Gruppe B-5
-	* @version 1.0
-	*
-	*/
 	
 	private eFeldTyp feldtyp = null;
 	private static int counter = 0;
 	private int ID;
 	private boolean hatSpielfigur = false;
-	private Spielfigur sfigur;
-	
+	private Spielfigur sfigur;	
 	
 	/**
 	 *  Konstruktor
 	 *  
-	 *  @param feldtyp Gibt dem Feld einen Typ (Start-, Ziel-,Lauf-, Homefeld)
-	 *  @param ID Weißt dem Feld eine ID zu
-	 *  @param sfigur Weißt dem Spielfeld eine Spielfigur zu
+	 *  @param eFeldtyp Übergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
 	 */
-
 	
-	public Spielfeld(eFeldTyp feldtyp){ 
-		
+	public Spielfeld(eFeldTyp feldtyp){ 	
 		setFeldTyp(feldtyp);		
 		
 		counter++;
-		ID = counter;
-		
-		
+		ID = counter;				
 	}
 
 	/**
 	 * Setter Feldtyp
 	 * 
-	 * @param feldtyp Gibt dem Feld einen Typ (Starfeld, Zielfeld, Lauffeld)
+	 * @param feldtyp Übergabewert aus enum eFeldTyp (Starfeld, Zielfeld, Lauffeld, Homefeld)
 	 */
 	
-	private void setFeldTyp(eFeldTyp feldtyp){
-		
+	private void setFeldTyp(eFeldTyp feldtyp){		
 		this.feldtyp = feldtyp;
-
 	}
 	
 	/**
@@ -54,8 +44,7 @@ public class Spielfeld {
 	 * @return Gibt den FeldTyp zurück (Start-, Ziel-, Lauf-, Homefeld)
 	 */
 	
-	public eFeldTyp getFeldTyp() {
-		
+	public eFeldTyp getFeldTyp() {		
 		return this.feldtyp;
 	}
 	
@@ -70,29 +59,51 @@ public class Spielfeld {
 		return this.ID;
 	}
 	
+	/**
+	 * Setzt eine Spielfigur auf ein Spielfeld
+	 * 
+	 * @param sfigur Übergabewert vom Typ Spielfigur
+	 */
+	
 	public void setSpielfigur(Spielfigur sfigur) {
+		if(this.hatSpielfigur==false){
 		this.sfigur = sfigur;
-		
+			}
+		else throw new RuntimeException("Es befindet sich eine Figur auf dem Feld!");		
 	}
 	
+	/**
+	 * Getter
+	 * 
+	 * @return Gibt die Spielfigur auf dem Spielfeld zurück
+	 */
+	
 	public Spielfigur getSpielfigur(){
-		return this.sfigur;
-		
+		return this.sfigur;		
 	}
+	
+	/**
+	 * Entfernt die Spielfigur vom Spielfeld
+	 * 
+	 * @throws Wirft eine Fehlermeldung, wenn keine Figur auf dem Feld ist
+	 */
 	
 	public void removeSpielfigur(){
 		if (this.hatSpielfigur == true){
 			sfigur = null;
 			this.hatSpielfigur = false;
 		}
-			else throw new RuntimeException("Keine Figur auf dem Feld!");
-		
+			else throw new RuntimeException("Keine Figur auf dem Feld!");		
 	}
 	
-
+	/**
+	 * toString
+	 * 
+	 * Gibt die SpielfeldID und den Spielfeldtyp als String zurück
+	 *  
+	 */
 	@Override
-	public String toString(){
-		
+	public String toString(){	
 		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
 	}
 
