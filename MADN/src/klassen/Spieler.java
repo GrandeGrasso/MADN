@@ -29,13 +29,13 @@ public class Spieler {
 	 * Erzeugt für jeden Spieler einen Würfel.
 	 * 
 	 * @param name Name des Spielers Typ String
-	 * @param farbeFigur Farbe des Spielers aus einem enum
+	 * @param farbe Farbe des Spielers aus einem enum
 	 * 
 	 */
 	
 	public Spieler(String name, eFarben farbe){
 		setName(name);
-		setFarbeFigur(farbe);
+		setFarbe(farbe);
 		w = new Wuerfel();
 		System.out.println("Spieler " +
 				this.getName() + " hat eine " +  w.werfen() + " gewürfelt.");
@@ -44,7 +44,6 @@ public class Spieler {
 	/**
 	 * Fügt einem Array spielfigur Spielfiguren hinzu
 	 * 	
-	 * @throws Wirft eine Fehlermeldung, wenn das Array voll ist und zusätzliche Spielfiguren hinzugefügt werden
 	 */
 	
 	public void figurHinzufuegen(){
@@ -62,13 +61,12 @@ public class Spieler {
 	 * Setter
 	 *
 	 * @param name Spielername Typ String
-	 * @throws Exception  Ueberpruefung der Laenge des Namens 
 	 */
 	
 	public void setName(String name) {
 		
 		if ((name==null)||(name.length()<2)){
-			throw new IllegalArgumentException("Falsche Eingabe!");
+			throw new RuntimeException("Falsche Eingabe!");
 			
 		}
 		this.name=name;
@@ -77,10 +75,10 @@ public class Spieler {
 	/**
 	 * Setter
 	 * 
-	 * @param farbeFigur Übergabewert der aus dem enum eFarben
+	 * @param farbe Übergabewert aus dem enum eFarben
 	 */
 	
-	public void setFarbeFigur(eFarben farbe) {
+	public void setFarbe(eFarben farbe) {
 		this.farbe = farbe;
 	} 
 	

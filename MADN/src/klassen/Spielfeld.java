@@ -18,7 +18,7 @@ public class Spielfeld {
 	/**
 	 *  Konstruktor
 	 *  
-	 *  @param eFeldtyp Übergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
+	 *  @param feldtyp Übergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
 	 */
 	
 	public Spielfeld(eFeldTyp feldtyp){ 	
@@ -85,7 +85,6 @@ public class Spielfeld {
 	/**
 	 * Entfernt die Spielfigur vom Spielfeld
 	 * 
-	 * @throws Wirft eine Fehlermeldung, wenn keine Figur auf dem Feld ist
 	 */
 	
 	public void removeSpielfigur(){
