@@ -13,6 +13,7 @@ public class Spielfeld {
 	private FeldTyp feldtyp = null;
 	private static int counter = 0;
 	private int ID;
+	private boolean hatSpielfigur = false;
 	private Spielfigur sfigur;
 	
 	
@@ -25,18 +26,15 @@ public class Spielfeld {
 	 */
 
 	
-	public Spielfeld(FeldTyp feldtyp, Spielfigur sfigur){ 
+	public Spielfeld(FeldTyp feldtyp){ 
 		
-		setFeldTyp(feldtyp);
-		setSfigur(sfigur);
-		
+		setFeldTyp(feldtyp);		
 		
 		counter++;
 		ID = counter;
 		
 		
 	}
-	
 
 	/**
 	 * Setter Feldtyp
@@ -48,18 +46,6 @@ public class Spielfeld {
 		
 		this.feldtyp = feldtyp;
 
-	}
-	
-	/**
-	 * Setter Spielfigur
-	 * 
-	 * @param sfigur Spielfigur
-	 */
-	
-	private void setSfigur(Spielfigur sfigur){
-		
-		this.sfigur = sfigur;
-		
 	}
 	
 	/**
@@ -80,40 +66,34 @@ public class Spielfeld {
 	 * @return Gibt die SpielfeldID zurück
 	 */
 	
-	public int getID() {
-		
+	public int getID() {	
 		return this.ID;
 	}
 	
-	/**
-	 * Getter Spielfigur
-	 * 
-	 * @return Gibt die auf dem Spielfeld vorhandene Spielfigur zurück
-	 */
-	
-	public Spielfigur getSfigur(){
+	public void setSpielfigur(Spielfigur sfigur) {
+		this.sfigur = sfigur;
 		
+	}
+	
+	public Spielfigur getSpielfigur(){
 		return this.sfigur;
 		
 	}
 	
-	public boolean hatSfigur(){
-		
-		if(this.sfigur!=null) return true;
-		else return false;		
+	public void removeSpielfigur(){
+		if (this.hatSpielfigur == true){
+			sfigur = null;
+			this.hatSpielfigur = false;
+		}
+			else throw new RuntimeException("Keine Figur auf dem Feld!");
 		
 	}
 	
-	public void addSpielfigur(Spielfigur sfigur){
-		
-		this.sfigur = sfigur;
-		
-	}
 
 	@Override
 	public String toString(){
 		
-		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp()+" Spielfigur: "+this.getSfigur()+" | ";
+		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
 	}
 
 	

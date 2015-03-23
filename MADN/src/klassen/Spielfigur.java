@@ -22,21 +22,18 @@ public class Spielfigur {
 	private Farben farbeFigur;
 	private int pos;
 
-	public Spielfigur(Spieler spieler, Farben farbeFigur, int pos, Spielfeld sfeld){
+	public Spielfigur(Farben farbeFigur){
 		
-		setSpieler(spieler);
 		setFarbe(farbeFigur);
-		setPos(pos);
-		setSpielfeld(sfeld);
 			
 	}
 
-	private void setSpielfeld(Spielfeld sfeld) {	
+	public void setSpielfeld(Spielfeld sfeld) {	
 		this.sfeld = sfeld;
 		
 	}
 
-	private void setPos(int pos) {	
+	public void setPos(int pos) {	
 		this.pos = pos;
 		
 	}
@@ -46,7 +43,7 @@ public class Spielfigur {
 		
 	}
 
-	private void setSpieler(Spieler spieler) {		
+	public void setSpieler(Spieler spieler) {		
 		this.spieler = spieler;		
 	}
 

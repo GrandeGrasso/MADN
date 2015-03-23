@@ -11,21 +11,19 @@ public class SpielTest {
 		
 		Spielbrett spielbrett1 = new Spielbrett();
 		
-		Spielfeld spielfeld1 = new Spielfeld(FeldTyp.Startfeld, null);
-		Spielfeld spielfeld2 = new Spielfeld(FeldTyp.Zielfeld, null);
+		Spielfeld spielfeld1 = new Spielfeld(FeldTyp.Startfeld);
+		Spielfeld spielfeld2 = new Spielfeld(FeldTyp.Zielfeld);
 		
 		
-		Spielfigur sfigur1 = new Spielfigur(spieler1, Farben.BLAU, spielfeld1.getID(), spielfeld1);
-		Spielfigur sfigur2 = new Spielfigur(spieler1, Farben.BLAU, spielfeld2.getID(), spielfeld2);
+		Spielfigur sfigur1 = new Spielfigur(Farben.BLAU);
+		Spielfigur sfigur2 = new Spielfigur(Farben.BLAU);
 		
 		
-		spielfeld1.addSpielfigur(sfigur1);
-		spielfeld2.addSpielfigur(sfigur2);
-		
-		System.out.println(spielfeld1.getSfigur());
 		System.out.println(spielfeld2.getID());
 		
+		System.out.println(spieler1.getAnzahlFiguren());
 		
+		System.out.println(spieler1.getAnzahlFiguren());
 		
 	}
 

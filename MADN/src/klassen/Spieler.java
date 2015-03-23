@@ -42,9 +42,7 @@ public class Spieler {
 		setName(name);
 		setFarbeFigur(farbeFigur);
 		System.out.println("Der Spieler mit dem Namen " +
-				getName() + " hat eine " +  w.werfen()  + " geworfen");
-		//	for (int i=1; i<=3; i++){
-		//		KI.add(new KI(this));
+				getName() + " hat eine " +  Wuerfel.werfen()  + " geworfen");
 	}
 	
 	/**
@@ -84,14 +82,18 @@ public class Spieler {
 	 * @param sf Anzahl wird  sf zugewiesen
 	 */
 
-	public static void figurHinzufuegen(Spielfigur sf){
+	public void figurHinzufuegen(){
 		
 		if(spielfigurAnz < spielfigurMax){
-			 spielfigur [spielfigurAnz++]=sf;
+			for(int i = 0; i<spielfigurMax;i++) {
+			 spielfigur[i] = new Spielfigur(this.farbeFigur);
+			}
+			spielfigurAnz++;
 		}
+		else throw new RuntimeException("Maximale Anzahl an Spielfiguren erreicht!");
 	}
 	
-	public static int getAnzahlFiguren() {
+	public int getAnzahlFiguren() {
 		return spielfigurAnz;
 	}
 	
