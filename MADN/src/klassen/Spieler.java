@@ -80,7 +80,9 @@ public class Spieler {
 	 */
 	
 	public void setFarbe(eFarben farbe) {
+		if( farbe == eFarben.ROT || farbe == eFarben.GRUEN || farbe == eFarben.GELB || farbe == eFarben.BLAU)
 		this.farbe = farbe;
+		else throw new RuntimeException ("Falsche Eingabe!");
 	} 
 	
 	/**
