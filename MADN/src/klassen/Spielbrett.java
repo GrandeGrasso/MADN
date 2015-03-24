@@ -71,7 +71,7 @@ public class Spielbrett {
 	 * 
 	 * Methode befuelleZiel()
 	 * 
-	 * Befüllt die Arrays der Zielfelder Spielfeldern vom Typ Zielfeld.
+	 * Befuellt die Arrays der Zielfelder Spielfeldern vom Typ Zielfeld.
 	 * 
 	 */
 	
@@ -107,7 +107,7 @@ public class Spielbrett {
 	 * 
 	 * Methode getSpielbrett()
 	 * 
-	 * Gibt das gesamte Spielbrett zurück.
+	 * Gibt das gesamte Spielbrett zurueck.
 	 * 
 	 * @return String des Spielbretts
 	 */

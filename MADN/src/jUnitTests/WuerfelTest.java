@@ -14,14 +14,14 @@ import org.junit.Test;
 public class WuerfelTest {
 
    /**
-    * Haupttest zu würfel
+    * Haupttest zu Wuerfel
     */
    public WuerfelTest() {
    }
 
    /**
     *
-    * @throws java.lang.Exception
+    * @throws java.lang.Exception Fehlermeldung
     */
    @BeforeClass
    public static void setUpClass() throws Exception {
@@ -29,14 +29,14 @@ public class WuerfelTest {
 
    /**
     *
-    * @throws java.lang.Exception
+    * @throws java.lang.Exception Fehlermeldung
     */
    @AfterClass
    public static void tearDownClass() throws Exception {
    }
 
    /**
-    * Test werfen Methode aus der Würfel Klasse
+    * Test werfen Methode aus der Wuerfel Klasse
     */
    @Test
    public void werfen()

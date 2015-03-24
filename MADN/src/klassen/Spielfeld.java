@@ -18,7 +18,7 @@ public class Spielfeld {
 	/**
 	 *  Konstruktor
 	 *  
-	 *  @param feldtyp Übergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
+	 *  @param feldtyp Uebergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
 	 */
 	
 	public Spielfeld(eFeldTyp feldtyp){ 	
@@ -31,7 +31,7 @@ public class Spielfeld {
 	/**
 	 * Setter Feldtyp
 	 * 
-	 * @param feldtyp Übergabewert aus enum eFeldTyp (Starfeld, Zielfeld, Lauffeld, Homefeld)
+	 * @param feldtyp Uebergabewert aus enum eFeldTyp (Starfeld, Zielfeld, Lauffeld, Homefeld)
 	 */
 	
 	private void setFeldTyp(eFeldTyp feldtyp){		
@@ -41,7 +41,7 @@ public class Spielfeld {
 	/**
 	 * Getter FeldTyp
 	 * 
-	 * @return Gibt den FeldTyp zurück (Start-, Ziel-, Lauf-, Homefeld)
+	 * @return Gibt den FeldTyp zurueck (Start-, Ziel-, Lauf-, Homefeld)
 	 */
 	
 	public eFeldTyp getFeldTyp() {		
@@ -52,7 +52,7 @@ public class Spielfeld {
 	 * 
 	 * Getter ID
 	 * 
-	 * @return Gibt die SpielfeldID zurück
+	 * @return Gibt die SpielfeldID zurueck
 	 */
 	
 	public int getID() {	
@@ -62,7 +62,7 @@ public class Spielfeld {
 	/**
 	 * Setzt eine Spielfigur auf ein Spielfeld
 	 * 
-	 * @param sfigur Übergabewert vom Typ Spielfigur
+	 * @param sfigur Uebergabewert vom Typ Spielfigur
 	 */
 	
 	public void setSpielfigur(Spielfigur sfigur) {
@@ -75,7 +75,7 @@ public class Spielfeld {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt die Spielfigur auf dem Spielfeld zurück
+	 * @return Gibt die Spielfigur auf dem Spielfeld zurueck
 	 */
 	
 	public Spielfigur getSpielfigur(){
@@ -98,7 +98,7 @@ public class Spielfeld {
 	/**
 	 * toString
 	 * 
-	 * Gibt die SpielfeldID und den Spielfeldtyp als String zurück
+	 * Gibt die SpielfeldID und den Spielfeldtyp als String zurueck
 	 *  
 	 */
 	@Override

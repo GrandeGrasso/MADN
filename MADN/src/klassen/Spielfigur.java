@@ -1,7 +1,7 @@
 package klassen;
 
 /**
- * Klasse Spielfigur wird erstellt 
+ * Klasse Spielfigur, Definiert die Spielfigur 
  * @author  Gruppe B-5
  * @version 1.1
  */
@@ -17,7 +17,7 @@ public class Spielfigur {
 	/**
 	 * Konstruktor
 	 * 
-	 * @param farbeFigur Übergabewert der die Farbe der Spielfigur bestimmt
+	 * @param farbeFigur Uebergabewert der die Farbe der Spielfigur bestimmt
 	 */
 	
 	public Spielfigur(eFarben farbeFigur){
@@ -27,7 +27,7 @@ public class Spielfigur {
 	/**
 	 * Setter 
 	 * 
-	 * @param sfeld Übergabewert vom Typ Spielfeld
+	 * @param sfeld Uebergabewert vom Typ Spielfeld
 	 */
 
 	public void setSpielfeld(Spielfeld sfeld) {	
@@ -37,7 +37,7 @@ public class Spielfigur {
 	/**
 	 * Setter
 	 * 
-	 * @param pos Übergabewert vom Typ Integer
+	 * @param pos Uebergabewert vom Typ Integer
 	 */
 
 	public void setPos(int pos) {	
@@ -47,7 +47,7 @@ public class Spielfigur {
 	/**
 	 * Setter
 	 * 
-	 * @param farbeFigur Übergabewert aus dem Enum eFarben
+	 * @param farbeFigur Uebergabewert aus dem Enum eFarben
 	 */
 	
 	private void setFarbe(eFarben farbeFigur) {	
@@ -57,7 +57,7 @@ public class Spielfigur {
 	/**
 	 * Setter
 	 * 
-	 * @param spieler Übergabewert vom Typ Spieler
+	 * @param spieler Uebergabewert vom Typ Spieler
 	 */
 	
 	public void setSpieler(Spieler spieler) {		
@@ -67,7 +67,7 @@ public class Spielfigur {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt den Spieler der Spielfigur zurück
+	 * @return Gibt den Spieler der Spielfigur zurueck
 	 */
 	
 	public Spieler getSpieler() {		
@@ -77,7 +77,7 @@ public class Spielfigur {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt das Spielfeld, auf dem die Figur steht zurück
+	 * @return Gibt das Spielfeld, auf dem die Figur steht zurueck
 	 */
 	
 	public Spielfeld getSfeld() {
@@ -97,7 +97,7 @@ public class Spielfigur {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt die aktuelle Position der Spielfigur zurück
+	 * @return Gibt die aktuelle Position der Spielfigur zurueck
 	 */
 	
 	public int getPos() {
@@ -107,7 +107,7 @@ public class Spielfigur {
 	/**
 	 * toString
 	 * 
-	 * Gibt den Spieler, die Farbe und die aktuelle Position der Spielfigur zurück
+	 * Gibt den Spieler, die Farbe und die aktuelle Position der Spielfigur zurueck
 	 */
 	@Override
 	public String toString() {

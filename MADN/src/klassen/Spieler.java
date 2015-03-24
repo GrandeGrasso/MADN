@@ -1,7 +1,7 @@
 package klassen;
 
 /**
- * Klasse Spieler wird erstellt 
+ * Klasse Spieler, Definiert den Spieler
  * @author  Gruppe B-5
  * @version 1.1
  */
@@ -24,7 +24,7 @@ public class Spieler {
 	/**
 	 * Konstruktor
 	 * 
-	 * Erzeugt für jeden Spieler einen Würfel.
+	 * Erzeugt für jeden Spieler einen Wuerfel.
 	 * 
 	 * @param name Name des Spielers Typ String
 	 * @param farbe Farbe des Spielers aus einem enum
@@ -40,7 +40,7 @@ public class Spieler {
 	}
 	
 	/**
-	 * Fügt einem Array spielfigur Spielfiguren hinzu
+	 * Fuegt einem Array spielfigur Spielfiguren hinzu
 	 * 	
 	 */
 	
@@ -73,7 +73,7 @@ public class Spieler {
 	/**
 	 * Setter
 	 * 
-	 * @param farbe Übergabewert aus dem enum eFarben
+	 * @param farbe Uebergabewert aus dem enum eFarben
 	 */
 	
 	public void setFarbe(eFarben farbe) {
@@ -93,7 +93,7 @@ public class Spieler {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt die Farbe der Spielfigur zurück
+	 * @return Gibt die Farbe der Spielfigur zurueck
 	 */
 	
 	public eFarben getFarbe() {
@@ -103,7 +103,7 @@ public class Spieler {
 	/**
 	 * Getter
 	 * 
-	 * @return Gibt die Anzahl der Spielfiguren im Spiefiguren Array zurück
+	 * @return Gibt die Anzahl der Spielfiguren im Spiefiguren Array zurueck
 	 */
 	
 	public int getAnzahlFiguren() {
@@ -118,7 +118,7 @@ public class Spieler {
 	/**
 	* toString
 	*  
-	* @return Gibt Spielername und -farbe zurück
+	* @return Gibt Spielername und -farbe zurueck
 	*/
 	
 	@Override
@@ -130,8 +130,8 @@ public class Spieler {
 	* equals
 	* 
 	* @param o Das Objekt, mit dem verglichen werden soll.
-	* @return false Gibt false zurück, wenn Objekt nicht instance of Spieler ist
-	* @return true Gibt true zurück, wenn Objekt den gleichen Namen hat wie das Vergleichsobjekt 
+	* @return false Gibt false zurueck, wenn Objekt nicht instance of Spieler ist
+	* @return true Gibt true zurueck, wenn Objekt den gleichen Namen hat wie das Vergleichsobjekt 
 	*/
 	
 	@Override

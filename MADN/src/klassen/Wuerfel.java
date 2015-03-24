@@ -1,7 +1,7 @@
 package klassen;
 
 /**
- * Wuerfel Klasse, Definiert den Würfel
+ * Wuerfel Klasse, Definiert den Wuerfel
  * @author Gruppe B-5
  * @version 1.0
  *
