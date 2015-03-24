@@ -14,14 +14,14 @@ import org.junit.Test;
 public class WuerfelTest {
 
    /**
-    * Haupttest zu Wuerfel
+    * Haupttest zu wuerfel
     */
    public WuerfelTest() {
    }
 
    /**
     *
-    * @throws java.lang.Exception Fehlermeldung
+    * @throws java.lang.Exception
     */
    @BeforeClass
    public static void setUpClass() throws Exception {
@@ -29,7 +29,7 @@ public class WuerfelTest {
 
    /**
     *
-    * @throws java.lang.Exception Fehlermeldung
+    * @throws java.lang.Exception
     */
    @AfterClass
    public static void tearDownClass() throws Exception {
@@ -53,7 +53,17 @@ public class WuerfelTest {
        assertEquals(number, wuerfel.werfen());
       
    }
+   
+   @Test
+   public void werfenTest()
+   {
+      int ergebnis =  Wuerfel.werfen();
+      System.out.println(ergebnis);
+      assertTrue(ergebnis>0 && ergebnis <=6);
+      
+   }
 
+   
    
 	
 	

@@ -24,10 +24,10 @@ public class Wuerfel {
 	/**
 	 * Methode werfen()
 	 * 
-	 * @return Gibt einen Integer zwischen 1 und 6 zurück
+	 * @return Gibt einen Integer zwischen 1 und 6 zurueck
 	 */
 	
-	public int werfen(){		
+	public static int werfen(){		
 		 int augenzahl = (int)((Math.random()*6)+1);
 		 
 			return augenzahl;
@@ -35,9 +35,9 @@ public class Wuerfel {
 	
 	/**
 	 * 
-	 * Öffentlicher Setter für Spieler
+	 * Oeffentlicher Setter fuer Spieler
 	 * 
-	 * @param spieler Übergabewert vom Typ Spieler
+	 * @param spieler Uebergabewert vom Typ Spieler
 	 */
 	
 	public void setSpieler(Spieler spieler){
@@ -45,9 +45,9 @@ public class Wuerfel {
 	}
 	
 	/**
-	 * Getter für Spieler
+	 * Getter fuer Spieler
 	 * 
-	 * @return Gibt den Spieler des Würfels zurück
+	 * @return Gibt den Spieler des Wuerfels zurueck
 	 */
 	
 	public Spieler getSpieler(){
