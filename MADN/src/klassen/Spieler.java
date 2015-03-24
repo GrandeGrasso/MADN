@@ -1,5 +1,7 @@
 package klassen;
 
+import java.util.ArrayList;
+
 /**
  * Klasse Spieler, Definiert den Spieler
  * @author  Gruppe B-5
@@ -15,11 +17,9 @@ public class Spieler {
 	private static Spielfigur[] spielfigur = new Spielfigur[spielfigurMax];
 	private static int spielfigurAnz=0;
 	private eFarben farbe;
+	private static final int anzahlKIMax=3;
+	private ArrayList<KI> KI = new ArrayList<KI>();
 //	private boolean gewonnen = false;
-//	private static final int anzahlKIMax=3;
-//	private static KI[] ki=new KI[anzahlKIMax];
-//	private int anzahlKI=0;
-//	static ArrayList<KI>KI = new ArrayList<KI>();
 	
 	/**
 	 * Konstruktor
@@ -34,6 +34,9 @@ public class Spieler {
 	public Spieler(String name, eFarben farbe){
 		setName(name);
 		setFarbe(farbe);
+		for(int i=0;i<anzahlKIMax;i++){
+			KI.add(new KI(this));
+		}
 		w = new Wuerfel();
 		System.out.println("Spieler " +
 				this.getName() + " hat eine " +  w.werfen() + " gewürfelt.");

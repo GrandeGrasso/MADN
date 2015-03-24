@@ -27,9 +27,8 @@ public class Wuerfel {
 	 * @return Gibt einen Integer zwischen 1 und 6 zurueck
 	 */
 	
-	public static int werfen(){		
-		 int augenzahl = (int)((Math.random()*6)+1);
-		 
+	public int werfen(){		
+		 int augenzahl = (int)((Math.random()*6)+1);	 
 			return augenzahl;
   }
 	
