@@ -1,4 +1,11 @@
-package klassen;
+package jUnitTests;
+
+import klassen.Spielbrett;
+import klassen.Spieler;
+import klassen.Spielfeld;
+import klassen.Spielfigur;
+import klassen.eFarben;
+import klassen.eFeldTyp;
 
 
 public class SpielTest {
