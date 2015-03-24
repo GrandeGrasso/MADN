@@ -1,6 +1,4 @@
 package klassen;
-import java.util.Random;
-
 
 /**
  * Farben Enum, Definiert die Spielfarben

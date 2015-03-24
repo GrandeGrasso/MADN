@@ -1,7 +1,5 @@
 package klassen;
 
-import java.util.ArrayList;
-
 /**
  * Klasse Spieler wird erstellt 
  * @author  Gruppe B-5
