@@ -39,7 +39,7 @@ public class Spieler {
 		}
 		w = new Wuerfel();
 		System.out.println("Spieler " +
-				this.getName() + " hat eine " +  w.werfen() + " gewürfelt.");
+				this.getName() + " hat eine " +  w.werfen() + " gewuerfelt.");
 	}
 	
 	/**
