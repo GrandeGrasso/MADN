@@ -38,26 +38,27 @@ public class WuerfelTest {
    /**
     * Test werfen Methode aus der Wuerfel Klasse
     */
-   @Test
-   public void werfen()
-   {
-       Wuerfel wuerfel = new Wuerfel();
-   
-      
-       //Wuerfeln
-       int number = wuerfel.werfen();
-      
-  
-      
-       //& bei erneutem Wuerfeln die selbe zahl zeigen
-       assertEquals(number, wuerfel.werfen());
-      
-   }
+//   @Test
+//   public void werfen()
+//   {
+//       Wuerfel wuerfel = new Wuerfel();
+//   
+//      
+//       //Wuerfeln
+//       int number = wuerfel.werfen();
+//      
+//  
+//      
+//       //& bei erneutem Wuerfeln die selbe zahl zeigen
+//       assertEquals(number, wuerfel.werfen());
+//      
+//   }
    
    @Test
    public void werfenTest()
    {
-      int ergebnis =  Wuerfel.werfen();
+	  Wuerfel w1 = new Wuerfel();
+      int ergebnis =  w1.werfen();
       System.out.println(ergebnis);
       assertTrue(ergebnis>0 && ergebnis <=6);
       
