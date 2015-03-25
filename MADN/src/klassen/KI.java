@@ -6,7 +6,7 @@ package klassen;
  * @version 1.1
  */
 
-public class KI {
+public  class KI {
 
 	private Spieler s;
 	

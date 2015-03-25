@@ -1,6 +1,8 @@
-package klassen;
+package jUnitTests;
 
 import static org.junit.Assert.*;
+import klassen.Spielfigur;
+import klassen.eFarben;
 
 import org.junit.Test;
 
