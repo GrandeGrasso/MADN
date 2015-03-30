@@ -12,10 +12,11 @@ import java.util.ArrayList;
 public class Spieler {
  
 	private String name;
-	private Wuerfel w;
+	public Wuerfel w;
 	private static final int spielfigurMax =4 ;
-	private static Spielfigur[] spielfigur = new Spielfigur[spielfigurMax];
-	private static int spielfigurAnz=0;
+	private static Spielfigur []spielfigur = new Spielfigur[spielfigurMax];
+	public ArrayList <Object[]> spielfiguren = new ArrayList<Object[]>();
+	private int spielfigurAnz=0;
 	private eFarben farbe;
 	private static final int anzahlKIMax=3;
 	private ArrayList<KI> KI = new ArrayList<KI>();
@@ -38,8 +39,7 @@ public class Spieler {
 			KI.add(new KI(this));
 		}
 		w = new Wuerfel();
-		System.out.println("Spieler " +
-				this.getName() + " hat eine " +  w.werfen() + " gewuerfelt.");
+		
 	}
 	
 	/**
@@ -47,15 +47,16 @@ public class Spieler {
 	 * 	
 	 */
 	
-	public void figurHinzufuegen(){
-		
+	public void figurHinzufuegen(Spielfigur sf){
 		if(spielfigurAnz < spielfigurMax){
 			for(int i = 0; i<spielfigurMax;i++) {
-				spielfigur[i] = new Spielfigur(this.farbe);
+				spielfigur[i] = sf;
 			}
 			spielfigurAnz++;
 		}
-		else throw new RuntimeException("Maximale Anzahl an Spielfiguren erreicht!");
+		else 
+			throw new RuntimeException("figurHinzufügen: Maximale Anzahl bereits erreicht!");
+		spielfiguren.add(spielfigur);	
 	}
 	
 	/**
@@ -118,7 +119,9 @@ public class Spieler {
 //	public void setzeSpielfigur(){
 //		
 //	}
-	
+	public ArrayList<Object[]> getFiguren(){
+		return spielfiguren;
+	}
 	
 	/**
 	* toString
@@ -145,10 +148,5 @@ public class Spieler {
 		Spieler s=(Spieler)o;
 		return (s.getName()==this.getName());
 	}
-	
-	
-
-	
-	
 	
 }

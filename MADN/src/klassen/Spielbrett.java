@@ -13,13 +13,13 @@ public class Spielbrett {
 	
 	private static LinkedList<Spielfeld> spielbrett;
 	private static Spielfeld homerot[];
-	private static Spielfeld zielrot[];
+	public static Spielfeld zielrot[];
 	private static Spielfeld homeblau[];
-	private static Spielfeld zielblau[];
+	public static Spielfeld zielblau[];
   private static Spielfeld homegruen[];
-  private static Spielfeld zielgruen[];
+  public static Spielfeld zielgruen[];
   private static Spielfeld homegelb[];
-  private static Spielfeld zielgelb[];
+  public static Spielfeld zielgelb[];
 	
   /**
    * Konstruktor

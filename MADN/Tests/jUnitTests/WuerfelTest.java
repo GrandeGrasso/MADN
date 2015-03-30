@@ -57,16 +57,10 @@ public class WuerfelTest {
    @Test
    public void werfenTest()
    {
-	  Wuerfel w1 = new Wuerfel();
-      int ergebnis =  w1.werfen();
+	  //Wuerfel w1 = new Wuerfel();
+      int ergebnis = Integer.parseInt(Wuerfel.werfen()) ;
       System.out.println(ergebnis);
       assertTrue(ergebnis>0 && ergebnis <=6);
       
    }
-
-   
-   
-	
-	
-
 }

@@ -27,9 +27,17 @@ public class Wuerfel {
 	 * @return Gibt einen Integer zwischen 1 und 6 zurueck
 	 */
 	
-	public int werfen(){		
-		 int augenzahl = (int)((Math.random()*6)+1);	 
-			return augenzahl;
+	public static String werfen(){		
+		 int augenzahl = (int)((Math.random()*6)+1);
+		 String s="";
+		 if(augenzahl==6){
+			 s+= "Glueckwunsch du hast eine " + augenzahl + " gewuerfelt & darfst nochmal wuerfeln :) ...";
+		 	 Spiel.counter--;
+		 }
+		 else 
+			 s+= "Du hast eine " + augenzahl + " gewuerfelt...";
+		 	 Spiel.counter++;
+		 return s;
   }
 	
 	/**

@@ -1,5 +1,7 @@
 package klassen;
 
+import java.util.ArrayList;
+
 /**
  * Spielfeld, Definiert ein Spielfeld
  * @author Gruppe B-5
@@ -9,11 +11,12 @@ package klassen;
 
 public class Spielfeld {
 	
-	private eFeldTyp feldtyp = null;
+	private static eFeldTyp feldtyp = null;
 	private static int counter = 0;
 	private int ID;
-	private boolean hatSpielfigur = false;
+	public static boolean hatSpielfigur = false;
 	private Spielfigur sfigur;	
+	
 	
 	/**
 	 *  Konstruktor
@@ -45,7 +48,7 @@ public class Spielfeld {
 	 */
 	
 	public eFeldTyp getFeldTyp() {		
-		return this.feldtyp;
+		return feldtyp;
 	}
 	
 	/**
@@ -67,9 +70,10 @@ public class Spielfeld {
 	
 	public void setSpielfigur(Spielfigur sfigur) {
 		if(this.hatSpielfigur==false){
-		this.sfigur = sfigur;
+			this.sfigur = sfigur;
 			}
-		else throw new RuntimeException("Es befindet sich eine Figur auf dem Feld!");		
+		else System.out.println("Es befindet sich eine Figur auf dem Feld, kicken?");
+		
 	}
 	
 	/**
@@ -79,7 +83,7 @@ public class Spielfeld {
 	 */
 	
 	public Spielfigur getSpielfigur(){
-		return this.sfigur;		
+		return sfigur;
 	}
 	
 	/**
@@ -90,11 +94,24 @@ public class Spielfeld {
 	public void removeSpielfigur(){
 		if (this.hatSpielfigur == true){
 			sfigur = null;
+			System.out.println("Die Figur auf dem " +this +" wurde entfernt!");
 			this.hatSpielfigur = false;
 		}
 			else throw new RuntimeException("Keine Figur auf dem Feld!");		
 	}
 	
+	/**
+	* istFeldBelegt()
+	* 
+	* @return false Gibt false zurueck, wenn Spielfeld nicht belegt ist.
+	* @return true Gibt true zurueck, wenn auf einem Spielfeld bereits eine Figur steht.
+	*/
+	public boolean istFeldBelegt(){
+		if(this.hatSpielfigur==true){
+			return true;
+			}
+		return false;
+	}
 	/**
 	 * toString
 	 * 
@@ -105,7 +122,5 @@ public class Spielfeld {
 	public String toString(){	
 		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
 	}
-
-	
 	
 }
