@@ -121,8 +121,8 @@ public class Spielbrett {
 		return homerot;
 	}
 
-	public void setHomerot(Spielfeld[] homerot) {
-		this.homerot = homerot;
+	public void setHomerot() {
+		;
 	}
 
 	public Spielfeld[] getZielrot() {

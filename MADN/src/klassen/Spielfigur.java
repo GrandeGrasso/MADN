@@ -46,6 +46,7 @@ public class Spielfigur {
 			this.pos = pos;
 			Spielfeld.hatSpielfigur =true;
 			System.out.println(""+this +" wurde auf Position: " + pos + " gelegt.");
+			sfeld.setSpielfigur(this);
 			}
 		/*
 		if(Spielbrett.zielblau[0].getSpielfigur().getFarbeFigur()==eFarben.BLAU && Spielbrett.zielblau[1].getSpielfigur().getFarbeFigur()==eFarben.BLAU && Spielbrett.zielblau[2].getSpielfigur().getFarbeFigur()==eFarben.BLAU&& Spielbrett.zielblau[3].getSpielfigur().getFarbeFigur()==eFarben.BLAU)
