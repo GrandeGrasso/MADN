@@ -11,9 +11,16 @@ public class SpielTest {
 	public static void main(String[] args) {
 		
 		iBediener x = new Spiel();
-		x.addSpieler();
+		x.addSpieler("kathi", eFarben.ROT);
+		x.addSpieler("akin", eFarben.BLAU);
+		x.addSpieler("yunus", eFarben.GELB);
+		x.addSpieler("stefano", eFarben.GRUEN);
+
+		
 		x.starteSpiel();
 		x.wuerfeln();
+		x.werIstAmZug();
+		
 		/*
 		//Spieler
 		Spieler spieler1 = new Spieler("Kathi", eFarben.BLAU);

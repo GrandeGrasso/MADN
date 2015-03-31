@@ -8,6 +8,8 @@ public class Spiel implements iBediener {
 	private final static int spielerMax =4;
 	public static Spieler []spI = new Spieler[spielerMax];
 	static int counter=0;
+	private static int spcounter=0;
+	private Spielbrett sb;
 	
 	public Spiel(){
 	}
@@ -16,17 +18,23 @@ public class Spiel implements iBediener {
 	 * 
 	 * Methode addSpieler()
 	 * 
-	 * Fügt die jeweiligen Spieler ins Spiel hinzu.
-	 * @param sp Das Objekt das hinzugefuegt werden soll.
+	 * Fuegt die jeweiligen Spieler ins Spiel hinzu.
+	 * @param name Name des Spielers.
+	 * @param farbe Farbe des Spielers
 	 */
 	@Override
-	public void addSpieler() {
-		if(spielerAnz==spielerMax)
+	public void addSpieler(String name, eFarben farbe) {
+		
+		if(spielerAnz==spielerMax || spcounter == spielerMax)
 			throw new RuntimeException("Maximale Spieleranzahl bereits erreicht!");
-		spI[0]=new Spieler("Kathi", eFarben.BLAU);
-		spI[1]=new Spieler("Akin", eFarben.GRUEN);
-		spI[2]=new Spieler("Stefano", eFarben.ROT);
-		spI[3]=new Spieler("Yunus", eFarben.GELB);
+		else  {
+			spI[spcounter]=new Spieler(name, farbe);
+			for (int i = 0; i<=spcounter; i++){
+			//(spI[i].getFarbe().equals(spI[i+].getFarbe())){ throw new RuntimeException("deine mudda is schwul!");}
+			}
+			spcounter++;
+	}
+	
 	}
 	
 	/**
@@ -62,6 +70,7 @@ public class Spiel implements iBediener {
 	 */
 	@Override
 	public void starteSpiel() {
+		sb=new Spielbrett();
 		sortiere(spI);
 		System.out.println(this.toString());;
 		/*
@@ -90,12 +99,13 @@ public class Spiel implements iBediener {
 	 */	
 	@Override
 	public void wuerfeln(){
-		Wuerfel.getWürfelErg();
+		Wuerfel.getWuerfelErg();
 	}
 		
-	public void setzeFigurAufPos(int ID){
+	public void setzeFigurAufPos(Spielfigur sf , int ID){
+		
 		int getID = ID;
-		Spielfigur.setPos(getID);
+		sf.setPos(getID);
 	}
 	/**
 	 * 

@@ -39,7 +39,7 @@ public class Wuerfel {
 		 return s;
   }
 	
-	public static void getWürfelErg(){
+	public static void getWuerfelErg(){
 		System.out.println(werfen());;
 	}
 	/**
