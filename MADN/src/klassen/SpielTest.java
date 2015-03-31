@@ -20,7 +20,10 @@ public class SpielTest {
 		x.starteSpiel();
 		x.wuerfeln();
 		x.werIstAmZug();
+		x.wuerfeln();
+	
 		
+	
 		/*
 		//Spieler
 		Spieler spieler1 = new Spieler("Kathi", eFarben.BLAU);

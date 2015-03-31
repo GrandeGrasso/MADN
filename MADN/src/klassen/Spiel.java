@@ -71,6 +71,7 @@ public class Spiel implements iBediener {
 	@Override
 	public void starteSpiel() {
 		sb=new Spielbrett();
+		//uebergebeSpielfigurenDenSpielern();
 		sortiere(spI);
 		System.out.println(this.toString());;
 		/*
@@ -88,6 +89,12 @@ public class Spiel implements iBediener {
 				break;
 			}
 		}
+	}
+	
+	
+	@Override
+	public void uebergebeSpielfigurenDenSpielern(){
+		
 	}
 	
 	/**
