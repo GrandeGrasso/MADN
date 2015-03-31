@@ -12,7 +12,7 @@ public interface iBediener {
 	public void wuerfeln();
 	public void setzeFigurAufPos(Spielfigur sf, int ID);
 	public void werIstAmZug();
-	public void  uebergebeSpielfigurenDenSpielern();
+	public void FigurAnSpieler(Spieler spieler);
 	public void beendeSpiel();
 	
 }

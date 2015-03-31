@@ -10,6 +10,7 @@ public class Spiel implements iBediener {
 	static int counter=0;
 	private static int spcounter=0;
 	private Spielbrett sb;
+	private Spielfigur sf;
 	
 	public Spiel(){
 	}
@@ -71,7 +72,8 @@ public class Spiel implements iBediener {
 	@Override
 	public void starteSpiel() {
 		sb=new Spielbrett();
-		//uebergebeSpielfigurenDenSpielern();
+		for(int i=0;i<spI.length;i++){
+		FigurAnSpieler(spI[i]);}
 		sortiere(spI);
 		System.out.println(this.toString());;
 		/*
@@ -91,9 +93,56 @@ public class Spiel implements iBediener {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * Methode FigurAnSpieler()
+	 * 
+	 * Uebergibt den Spielern ihre Figuren und befuellt gleichzeitig deren Homefelder.
+	 * @param spieler Ein Objekt der Klasse Spieler
+	 */
 	@Override
-	public void uebergebeSpielfigurenDenSpielern(){
+	public void FigurAnSpieler(Spieler spieler){
+		
+		for(int i = 0; i<4;i++){
+			sf = new Spielfigur(spieler.getFarbe());
+			spieler.figurHinzufuegen(sf);
+			
+			switch (spieler.getFarbe()){				
+
+			case ROT:
+				int j=41;
+				do{
+					sf.setPos(j);
+					j++;
+				}while(j<45);
+					
+			case BLAU:
+				int k=49;
+				do{
+					sf.setPos(k);
+					k++;
+				}while(k<53);
+			case GRUEN:
+				int l=57;
+				do{
+					sf.setPos(l);
+					l++;
+				}while(l<61);
+			case GELB:
+				int m=65;
+				do{
+					sf.setPos(m);
+					m++;
+				}while(m<69);
+			}
+			
+		}
+		
+	
+		
+		
+	
+		
 		
 	}
 	
