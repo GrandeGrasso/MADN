@@ -22,7 +22,12 @@ public class SpielTest {
 		x.werIstAmZug();
 		x.wuerfeln();
 	
-		
+		//Das ist nur ein Test von mir, wegen einer Funktionalität von setPos() !! :)
+		Spielbrett sb = new Spielbrett();
+		System.out.println(sb.getHomerot().get(1));
+		Spielfigur sf = new Spielfigur(eFarben.BLAU, new Spieler("asd", eFarben.BLAU));
+		sf.setPos(133);
+		System.out.println(sb.getHomerot().get(1));
 	
 		/*
 		//Spieler

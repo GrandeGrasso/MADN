@@ -9,8 +9,9 @@ public class Spiel implements iBediener {
 	public static Spieler []spI = new Spieler[spielerMax];
 	static int counter=0;
 	private static int spcounter=0;
-	private Spielbrett sb;
 	private Spielfigur sf;
+	private Spielbrett sb;
+	private Spielfeld sfeld;
 	
 	public Spiel(){
 	}
@@ -75,7 +76,7 @@ public class Spiel implements iBediener {
 		for(int i=0;i<spI.length;i++){
 		FigurAnSpieler(spI[i]);}
 		sortiere(spI);
-		System.out.println(this.toString());;
+		System.out.println(this.toString());
 		/*
 		String s="";
 		s+= "Es sind folgende Spieler im Spiel: \n";
@@ -104,37 +105,52 @@ public class Spiel implements iBediener {
 	public void FigurAnSpieler(Spieler spieler){
 		
 		for(int i = 0; i<4;i++){
-			sf = new Spielfigur(spieler.getFarbe());
-			spieler.figurHinzufuegen(sf);
+			sf = new Spielfigur(spieler.getFarbe(), spieler);
+			spieler.figurHinzufuegen(sf);}
 			
 			switch (spieler.getFarbe()){				
 
 			case ROT:
 				int j=41;
 				do{
+					int r = 0;
+					sf.setSpielfeld(sb.getHomerot().get(r));
 					sf.setPos(j);
 					j++;
+					r++;
 				}while(j<45);
-					
+					break;
 			case BLAU:
 				int k=49;
 				do{
+					int b = 0;
+					sf.setSpielfeld(sb.getHomeblau().get(b));
 					sf.setPos(k);
 					k++;
+					b++;
 				}while(k<53);
+				  break;
 			case GRUEN:
 				int l=57;
 				do{
+					int gr = 0;
+					sf.setSpielfeld(sb.getHomegruen().get(gr));
 					sf.setPos(l);
 					l++;
+					gr++;
 				}while(l<61);
+				  break;
 			case GELB:
 				int m=65;
 				do{
+					int g = 0;
+					sf.setSpielfeld(sb.getHomegelb().get(g));
 					sf.setPos(m);
 					m++;
+					g++;
 				}while(m<69);
-			}
+				  break;
+			
 			
 		}
 		

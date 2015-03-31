@@ -1,5 +1,6 @@
 package klassen;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -12,14 +13,14 @@ import java.util.LinkedList;
 public class Spielbrett {
 	
 	private LinkedList<Spielfeld> spielbrett;
-	private Spielfeld homerot[];
-	private Spielfeld zielrot[];
-	private Spielfeld homeblau[];
-	private Spielfeld zielblau[];
-	private Spielfeld homegruen[];
-	private Spielfeld zielgruen[];
-	private Spielfeld homegelb[];
-	private Spielfeld zielgelb[];
+	private ArrayList<Spielfeld> homerot;
+	private ArrayList<Spielfeld> zielrot;
+	private ArrayList<Spielfeld> homeblau;
+	private ArrayList<Spielfeld> zielblau;
+	private ArrayList<Spielfeld> homegruen;
+	private ArrayList<Spielfeld> zielgruen;
+	private ArrayList<Spielfeld> homegelb;
+	private ArrayList<Spielfeld> zielgelb;
 	
   /**
    * Konstruktor
@@ -31,14 +32,14 @@ public class Spielbrett {
 	public Spielbrett(){	
 		
 		spielbrett = new LinkedList<Spielfeld>();
-		homerot = new Spielfeld[4];
-		zielrot = new Spielfeld[4];
-		homeblau = new Spielfeld[4];
-		zielblau = new Spielfeld[4];
-		homegruen = new Spielfeld[4];
-		zielgruen = new Spielfeld[4];
-		homegelb = new Spielfeld[4];
-		zielgelb = new Spielfeld[4];
+		homerot = new ArrayList<Spielfeld>();
+		zielrot = new ArrayList<Spielfeld>();
+		homeblau = new ArrayList<Spielfeld>();
+		zielblau = new ArrayList<Spielfeld>();
+		homegruen = new ArrayList<Spielfeld>();
+		zielgruen = new ArrayList<Spielfeld>();
+		homegelb = new ArrayList<Spielfeld>();
+		zielgelb = new ArrayList<Spielfeld>();
 		
 		befuelleSpielbrett();
 		befuelleZiel();
@@ -75,12 +76,12 @@ public class Spielbrett {
 	 */
 	
 	private void befuelleZiel(){		
-		for(int i=0;i<zielrot.length;i++){
+		for(int i=0;i<4;i++){
 			
-			zielrot[i]=new Spielfeld(eFeldTyp.Zielfeld);		
-			zielblau[i]=new Spielfeld(eFeldTyp.Zielfeld);	
-			zielgruen[i]=new Spielfeld(eFeldTyp.Zielfeld);
-			zielgelb[i]=new Spielfeld(eFeldTyp.Zielfeld);
+			zielrot.add(new Spielfeld(eFeldTyp.Zielfeld));		
+			zielblau.add(new Spielfeld(eFeldTyp.Zielfeld));	
+			zielgruen.add(new Spielfeld(eFeldTyp.Zielfeld));
+			zielgelb.add(new Spielfeld(eFeldTyp.Zielfeld));
 	}	
 }
 	
@@ -93,12 +94,12 @@ public class Spielbrett {
 	 */
 	
 	private void befuelleHome(){		
-		for(int i=0;i<homerot.length;i++){
+		for(int i=0;i<4;i++){
 			
-			homerot[i]=new Spielfeld(eFeldTyp.Homefeld);	
-			homeblau[i]=new Spielfeld(eFeldTyp.Homefeld);
-			homegruen[i]=new Spielfeld(eFeldTyp.Homefeld);
-			homegelb[i]=new Spielfeld(eFeldTyp.Homefeld);
+			homerot.add(new Spielfeld(eFeldTyp.Homefeld));	
+			homeblau.add(new Spielfeld(eFeldTyp.Homefeld));
+			homegruen.add(new Spielfeld(eFeldTyp.Homefeld));
+			homegelb.add(new Spielfeld(eFeldTyp.Homefeld));
 	}	
 }
 	
@@ -111,78 +112,48 @@ public class Spielbrett {
 	 * @return String des Spielbretts
 	 */
 	
-	public String getSpielbrett(){	
-			return spielbrett.toString();
+	public LinkedList<Spielfeld> getSpielbrett(){	
+			return spielbrett;
 	
 	}
 	
-	//Setter Getter
-	public Spielfeld[] getHomerot() {
+	/**
+	 * 
+	 * Getter der Home und Ziellisten
+	 * 
+	 * @return ArrayList ArrayList der Home und Zielfelder
+	 */
+	
+	public ArrayList<Spielfeld> getHomerot() {
 		return homerot;
 	}
 
-	public void setHomerot() {
-		;
-	}
-
-	public Spielfeld[] getZielrot() {
+	public ArrayList<Spielfeld> getZielrot() {
 		return zielrot;
 	}
 
-	public void setZielrot(Spielfeld[] zielrot) {
-		this.zielrot = zielrot;
-	}
-
-	public Spielfeld[] getHomeblau() {
+	public ArrayList<Spielfeld> getHomeblau() {
 		return homeblau;
 	}
 
-	public void setHomeblau(Spielfeld[] homeblau) {
-		this.homeblau = homeblau;
-	}
-
-	public Spielfeld[] getZielblau() {
+	public ArrayList<Spielfeld> getZielblau() {
 		return zielblau;
 	}
 
-	public  void setZielblau(Spielfeld[] zielblau) {
-		this.zielblau = zielblau;
-	}
-
-	public  Spielfeld[] getHomegruen() {
+	public  ArrayList<Spielfeld> getHomegruen() {
 		return homegruen;
 	}
 
-	public void setHomegruen(Spielfeld[] homegruen) {
-		this.homegruen = homegruen;
-	}
-
-	public Spielfeld[] getZielgruen() {
+	public ArrayList<Spielfeld> getZielgruen() {
 		return zielgruen;
 	}
-
-	public void setZielgruen(Spielfeld[] zielgruen) {
-		this.zielgruen = zielgruen;
-	}
-
-	public Spielfeld[] getHomegelb() {
+	
+	public ArrayList<Spielfeld> getHomegelb() {
 		return homegelb;
 	}
-
-	public void setHomegelb(Spielfeld[] homegelb) {
-		this.homegelb = homegelb;
-	}
-
-	public Spielfeld[] getZielgelb() {
+	
+	public ArrayList<Spielfeld> getZielgelb() {
 		return zielgelb;
-	}
-
-	public void setZielgelb(Spielfeld[] zielgelb) {
-		this.zielgelb = zielgelb;
-	}
-
-	public void setSpielbrett(LinkedList<Spielfeld> spielbrett) {
-		this.spielbrett = spielbrett;
 	}
 	
 }

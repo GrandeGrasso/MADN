@@ -1,6 +1,5 @@
 package klassen;
 
-import java.util.ArrayList;
 
 /**
  * Spielfeld, Definiert ein Spielfeld
@@ -11,10 +10,10 @@ import java.util.ArrayList;
 
 public class Spielfeld {
 	
-	private static eFeldTyp feldtyp = null;
+  private eFeldTyp feldtyp;
 	private static int counter = 0;
 	private int ID;
-	public static boolean hatSpielfigur = false;
+	private boolean hatSpielfigur = false;
 	private Spielfigur sfigur;	
 	
 	
@@ -120,7 +119,7 @@ public class Spielfeld {
 	 */
 	@Override
 	public String toString(){	
-		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp();
+		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp()+" Spielfigur: "+this.getSpielfigur();
 	}
 	
 }

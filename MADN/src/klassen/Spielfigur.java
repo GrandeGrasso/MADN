@@ -17,10 +17,12 @@ public class Spielfigur {
 	 * Konstruktor
 	 * 
 	 * @param farbeFigur Uebergabewert der die Farbe der Spielfigur bestimmt
+	 * @param spieler Uebergabewert vom Typ Spieler
 	 */
 	
-	public Spielfigur(eFarben farbeFigur){
-		setFarbe(farbeFigur);			
+	public Spielfigur(eFarben farbeFigur, Spieler spieler){
+		setFarbe(farbeFigur);
+		setSpieler(spieler);
 	}
 	
 	/**
@@ -29,8 +31,9 @@ public class Spielfigur {
 	 * @param sfeld Uebergabewert vom Typ Spielfeld
 	 */
 
-	public void setSpielfeld(Spielfeld sfeld) {	
-		this.sfeld = sfeld;		
+	public void setSpielfeld(Spielfeld sfeld) {
+		if (sfeld == null) throw new RuntimeException("Falsche Eingabe!");
+		else this.sfeld = sfeld;		
 	}
 	
 	/**
@@ -40,24 +43,14 @@ public class Spielfigur {
 	 */
 
 	public void setPos(int pos) {	
-		if(Spielfeld.hatSpielfigur==true)
-			System.out.println("Es befindet sich eine Figur auf diesem Spielfeld. Kicken?");
+		if(sfeld.istFeldBelegt()==true)
+			System.out.println("Es befindet sich eine Figur auf diesem Spielfeld. Schlagen?");
 		else{
 			this.pos = pos;
-			Spielfeld.hatSpielfigur =true;
-			System.out.println(""+this +" wurde auf Position: " + pos + " gelegt.");
+			this.setSpielfeld(sfeld);
 			sfeld.setSpielfigur(this);
+			System.out.println(""+this +" wurde auf Position: " + pos + " gelegt.");
 			}
-		/*
-		if(Spielbrett.zielblau[0].getSpielfigur().getFarbeFigur()==eFarben.BLAU && Spielbrett.zielblau[1].getSpielfigur().getFarbeFigur()==eFarben.BLAU && Spielbrett.zielblau[2].getSpielfigur().getFarbeFigur()==eFarben.BLAU&& Spielbrett.zielblau[3].getSpielfigur().getFarbeFigur()==eFarben.BLAU)
-			System.out.println("Der Spieler mit der Farbe blau hat gewonnen!");		
-		if(Spielbrett.zielrot[0].getSpielfigur().getFarbeFigur()==eFarben.ROT && Spielbrett.zielrot[1].getSpielfigur().getFarbeFigur()==eFarben.ROT && Spielbrett.zielrot[2].getSpielfigur().getFarbeFigur()==eFarben.ROT && Spielbrett.zielrot[3].getSpielfigur().getFarbeFigur()==eFarben.ROT)
-			System.out.println("Der Spieler mit der Farbe rot hat gewonnen!");
-		if(Spielbrett.zielgelb[0].getSpielfigur().getFarbeFigur()==eFarben.GELB && Spielbrett.zielgelb[1].getSpielfigur().getFarbeFigur()==eFarben.GELB && Spielbrett.zielgelb[2].getSpielfigur().getFarbeFigur()==eFarben.GELB && Spielbrett.zielgelb[3].getSpielfigur().getFarbeFigur()==eFarben.GELB)
-			System.out.println("Der Spieler mit der Farbe gelb hat gewonnen!");	
-		if(Spielbrett.zielgruen[0].getSpielfigur().getFarbeFigur()==eFarben.GRUEN && Spielbrett.zielgruen[1].getSpielfigur().getFarbeFigur()==eFarben.GRUEN && Spielbrett.zielgruen[2].getSpielfigur().getFarbeFigur()==eFarben.GRUEN && Spielbrett.zielgruen[3].getSpielfigur().getFarbeFigur()==eFarben.GRUEN)
-			System.out.println("Der Spieler mit der Farbe blau hat gewonnen!");		
-		*/
 	}
 	
 	/**
