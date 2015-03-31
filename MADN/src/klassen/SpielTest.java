@@ -1,5 +1,7 @@
 package klassen;
 
+import interfaces.iBediener;
+
 import javax.xml.stream.events.StartElement;
 
 
@@ -7,6 +9,12 @@ import javax.xml.stream.events.StartElement;
 public class SpielTest {
 
 	public static void main(String[] args) {
+		
+		iBediener x = new Spiel();
+		x.addSpieler();
+		x.starteSpiel();
+		x.wuerfeln();
+		/*
 		//Spieler
 		Spieler spieler1 = new Spieler("Kathi", eFarben.BLAU);
 		Spieler spieler2 = new Spieler("Akin", eFarben.GRUEN);
@@ -25,7 +33,7 @@ public class SpielTest {
 		//Spielfeld
 		Spielfeld spielfeld1 = new Spielfeld(eFeldTyp.Startfeld);
 		Spielfeld spielfeld2 = new Spielfeld(eFeldTyp.Zielfeld);
-		Spielfeld spielfeld3 = new Spielfeld(eFeldTyp.Homefeld);
+		
 		//Spielfiguren
 		Spielfigur sfigurRo1 = new Spielfigur(eFarben.ROT);
 		Spielfigur sfigurRo2 = new Spielfigur(eFarben.ROT);
@@ -113,7 +121,7 @@ public class SpielTest {
 		s1.beendeSpiel();
 		//System.out.println(s1); Spiel kennt die Spieler nicht mehr!  Exception in thread "main" java.lang.NullPointerException 
 		
-		
+		*/
 	}
 }
 

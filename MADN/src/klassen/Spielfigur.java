@@ -39,7 +39,7 @@ public class Spielfigur {
 	 * @param pos Uebergabewert vom Typ Integer
 	 */
 
-	public void setPos(int pos) {	
+	public static void setPos(int pos) {	
 		if(Spielfeld.hatSpielfigur==true)
 			System.out.println("Es befindet sich eine Figur auf diesem Spielfeld. Kicken?");
 		else{

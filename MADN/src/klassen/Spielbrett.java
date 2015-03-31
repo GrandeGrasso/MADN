@@ -11,15 +11,15 @@ import java.util.LinkedList;
 
 public class Spielbrett {
 	
-	private static LinkedList<Spielfeld> spielbrett;
-	private static Spielfeld homerot[];
-	public static Spielfeld zielrot[];
-	private static Spielfeld homeblau[];
-	public static Spielfeld zielblau[];
-  private static Spielfeld homegruen[];
-  public static Spielfeld zielgruen[];
-  private static Spielfeld homegelb[];
-  public static Spielfeld zielgelb[];
+	private LinkedList<Spielfeld> spielbrett;
+	private Spielfeld homerot[];
+	private Spielfeld zielrot[];
+	private Spielfeld homeblau[];
+	private Spielfeld zielblau[];
+	private Spielfeld homegruen[];
+	private Spielfeld zielgruen[];
+	private Spielfeld homegelb[];
+	private Spielfeld zielgelb[];
 	
   /**
    * Konstruktor
@@ -39,7 +39,6 @@ public class Spielbrett {
 		zielgruen = new Spielfeld[4];
 		homegelb = new Spielfeld[4];
 		zielgelb = new Spielfeld[4];
-		
 		
 		befuelleSpielbrett();
 		befuelleZiel();
@@ -115,6 +114,75 @@ public class Spielbrett {
 	public String getSpielbrett(){	
 			return spielbrett.toString();
 	
-	}	
+	}
+	
+	//Setter Getter
+	public Spielfeld[] getHomerot() {
+		return homerot;
+	}
+
+	public void setHomerot(Spielfeld[] homerot) {
+		this.homerot = homerot;
+	}
+
+	public Spielfeld[] getZielrot() {
+		return zielrot;
+	}
+
+	public void setZielrot(Spielfeld[] zielrot) {
+		this.zielrot = zielrot;
+	}
+
+	public Spielfeld[] getHomeblau() {
+		return homeblau;
+	}
+
+	public void setHomeblau(Spielfeld[] homeblau) {
+		this.homeblau = homeblau;
+	}
+
+	public Spielfeld[] getZielblau() {
+		return zielblau;
+	}
+
+	public  void setZielblau(Spielfeld[] zielblau) {
+		this.zielblau = zielblau;
+	}
+
+	public  Spielfeld[] getHomegruen() {
+		return homegruen;
+	}
+
+	public void setHomegruen(Spielfeld[] homegruen) {
+		this.homegruen = homegruen;
+	}
+
+	public Spielfeld[] getZielgruen() {
+		return zielgruen;
+	}
+
+	public void setZielgruen(Spielfeld[] zielgruen) {
+		this.zielgruen = zielgruen;
+	}
+
+	public Spielfeld[] getHomegelb() {
+		return homegelb;
+	}
+
+	public void setHomegelb(Spielfeld[] homegelb) {
+		this.homegelb = homegelb;
+	}
+
+	public Spielfeld[] getZielgelb() {
+		return zielgelb;
+	}
+
+	public void setZielgelb(Spielfeld[] zielgelb) {
+		this.zielgelb = zielgelb;
+	}
+
+	public void setSpielbrett(LinkedList<Spielfeld> spielbrett) {
+		this.spielbrett = spielbrett;
+	}
 	
 }

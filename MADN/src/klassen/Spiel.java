@@ -20,10 +20,13 @@ public class Spiel implements iBediener {
 	 * @param sp Das Objekt das hinzugefuegt werden soll.
 	 */
 	@Override
-	public void addSpieler(Spieler sp) {
+	public void addSpieler() {
 		if(spielerAnz==spielerMax)
 			throw new RuntimeException("Maximale Spieleranzahl bereits erreicht!");
-		spI[spielerAnz++]=sp;
+		spI[0]=new Spieler("Kathi", eFarben.BLAU);
+		spI[1]=new Spieler("Akin", eFarben.GRUEN);
+		spI[2]=new Spieler("Stefano", eFarben.ROT);
+		spI[3]=new Spieler("Yunus", eFarben.GELB);
 	}
 	
 	/**
@@ -60,6 +63,15 @@ public class Spiel implements iBediener {
 	@Override
 	public void starteSpiel() {
 		sortiere(spI);
+		System.out.println(this.toString());;
+		/*
+		String s="";
+		s+= "Es sind folgende Spieler im Spiel: \n";
+		for(int i=0;i<spI.length;i++){
+			s+= spI[i].getName() + " | ";
+		}
+		System.out.println(s);
+		*/
 		for(int i=0;i<spI.length;i++){
 			if(spI[i].getFarbe()==eFarben.ROT){
 				System.out.println("--- Das Spiel beginnt! ---");
@@ -68,8 +80,23 @@ public class Spiel implements iBediener {
 			}
 		}
 	}
+	
+	/**
+	 * 
+	 * Methode wuerfeln()
+	 * 
+	 * Ruft die Methode getWuerfelErg() in der Klasse Wuerfel auf.
+	 * 
+	 */	
+	@Override
+	public void wuerfeln(){
+		Wuerfel.getWürfelErg();
+	}
 		
-		
+	public void setzeFigurAufPos(int ID){
+		int getID = ID;
+		Spielfigur.setPos(getID);
+	}
 	/**
 	 * 
 	 * Methode werIstAmZug()

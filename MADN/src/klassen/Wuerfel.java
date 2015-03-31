@@ -10,7 +10,6 @@ package klassen;
 public class Wuerfel {
 	
 	private Spieler sp;
-
 	
 	/**
 	 * Konstruktor
@@ -28,7 +27,7 @@ public class Wuerfel {
 	 */
 	
 	public static String werfen(){		
-		 int augenzahl = (int)((Math.random()*6)+1);
+		int augenzahl = (int)((Math.random()*6)+1);
 		 String s="";
 		 if(augenzahl==6){
 			 s+= "Glueckwunsch du hast eine " + augenzahl + " gewuerfelt & darfst nochmal wuerfeln :) ...";
@@ -40,6 +39,9 @@ public class Wuerfel {
 		 return s;
   }
 	
+	public static void getWürfelErg(){
+		System.out.println(werfen());;
+	}
 	/**
 	 * 
 	 * Oeffentlicher Setter fuer Spieler
