@@ -12,6 +12,7 @@ public class Spiel implements iBediener {
 	private Spielfigur sf;
 	private Spielbrett sb;
 	private Spielfeld sfeld;
+	private Spieler sp;
 	
 	public Spiel(){
 	}
@@ -152,13 +153,7 @@ public class Spiel implements iBediener {
 				  break;
 			
 			
-		}
-		
-	
-		
-		
-	
-		
+		}		
 		
 	}
 	
@@ -174,10 +169,12 @@ public class Spiel implements iBediener {
 		Wuerfel.getWuerfelErg();
 	}
 		
-	public void setzeFigurAufPos(Spielfigur sf , int ID){
+	public void setzeFigurAufPos(Spielfigur sf, int ID){
 		
 		int getID = ID;
+		sf.setSpielfeld(sb.getSpielbrett().get(getID));
 		sf.setPos(getID);
+		
 	}
 	/**
 	 * 
@@ -187,23 +184,34 @@ public class Spiel implements iBediener {
 	 * 
 	 */
 	@Override
-	public void werIstAmZug() {
+	public Spieler werIstAmZug() {
+		
+		Spieler spieler = null;
+		
 		if(counter>3)
 			counter=0;
+		
 		switch(counter){
 		case 0: 
-			System.out.println("Spieler: " +spI[0].getName() + " ist an der Reihe...");
+			spieler = spI[0];
 			break;
 		case 1:
-			System.out.println("Spieler: " +spI[1].getName() + " ist an der Reihe...");
+			spieler = spI[1];
 			break;
 		case 2:
-			System.out.println("Spieler: " +spI[2].getName() + " ist an der Reihe...");
+			spieler = spI[2];
 			break;
 		case 3:
-			System.out.println("Spieler: " +spI[3].getName() + " ist an der Reihe...");
+			spieler = spI[3];
 			break;
 		}
+		return spieler;
+		
+	}
+	
+	public Spieler getSpieler(Spieler spieler){
+		
+		return spI[0];
 	}
 	
 	/**

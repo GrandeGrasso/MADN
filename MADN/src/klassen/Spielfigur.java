@@ -47,8 +47,6 @@ public class Spielfigur {
 			System.out.println("Es befindet sich eine Figur auf diesem Spielfeld. Schlagen?");
 		else{
 			this.pos = pos;
-			this.setSpielfeld(sfeld);
-			sfeld.setSpielfigur(this);
 			System.out.println(""+this +" wurde auf Position: " + pos + " gelegt.");
 			}
 	}

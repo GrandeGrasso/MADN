@@ -14,8 +14,7 @@ public class Spieler {
 	private String name;
 	public Wuerfel w;
 	private static final int spielfigurMax =4 ;
-	private static Spielfigur []spielfigur = new Spielfigur[spielfigurMax];
-	public ArrayList <Object[]> spielfiguren = new ArrayList<Object[]>();
+	private ArrayList <Spielfigur> spielfiguren = new ArrayList<Spielfigur>();
 	private int spielfigurAnz=0;
 	private eFarben farbe;
 	private static final int anzahlKIMax=3;
@@ -48,15 +47,12 @@ public class Spieler {
 	 */
 	
 	public void figurHinzufuegen(Spielfigur sf){
-		if(spielfigurAnz < spielfigurMax){
-			for(int i = 0; i<spielfigurMax;i++) {
-				spielfigur[i] = sf;
-			}
-			spielfigurAnz++;
-		}
-		else 
+			
+		if (spielfigurAnz > spielfigurMax)
 			throw new RuntimeException("figurHinzufügen: Maximale Anzahl bereits erreicht!");
-		spielfiguren.add(spielfigur);	
+		
+		spielfiguren.add(sf);
+	  spielfigurAnz++;
 	}
 	
 	/**
@@ -119,7 +115,7 @@ public class Spieler {
 //	public void setzeSpielfigur(){
 //		
 //	}
-	public ArrayList<Object[]> getFiguren(){
+	public ArrayList<Spielfigur> getFiguren(){
 		return spielfiguren;
 	}
 	

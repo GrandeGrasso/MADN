@@ -70,6 +70,7 @@ public class Spielfeld {
 	public void setSpielfigur(Spielfigur sfigur) {
 		if(this.hatSpielfigur==false){
 			this.sfigur = sfigur;
+			this.hatSpielfigur = true;
 			}
 		else System.out.println("Es befindet sich eine Figur auf dem Feld, kicken?");
 		

@@ -11,7 +11,7 @@ public interface iBediener {
 	public void starteSpiel();
 	public void wuerfeln();
 	public void setzeFigurAufPos(Spielfigur sf, int ID);
-	public void werIstAmZug();
+	public Spieler werIstAmZug();
 	public void FigurAnSpieler(Spieler spieler);
 	public void beendeSpiel();
 	
