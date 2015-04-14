@@ -217,6 +217,14 @@ public class Spiel implements iBediener {
 		
 	}
 	
+	/**
+	 * 
+	 * Getter
+	 * 
+	 * @param spieler
+	 * @return Gibt den Spieler zurück
+	 */
+	
 	public Spieler getSpieler(Spieler spieler){
 		
 		return spI[0];
