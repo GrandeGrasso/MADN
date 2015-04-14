@@ -36,7 +36,10 @@ public class Spieler {
 		setName(name);
 		setFarbe(farbe);
 		for(int i=0;i<anzahlKIMax;i++){
-			KI.add(new KI(this));
+			KI.add(new KI_Aggressiv(this));
+		}
+		for(int i=0;i<anzahlKIMax;i++){
+			KI.add(new KI_Defensiv(this));
 		}
 		w = new Wuerfel();
 		

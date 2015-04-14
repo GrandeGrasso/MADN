@@ -21,7 +21,7 @@ public class SpielerTest {
 		
 		if(anzahlFiguren < maxAnzahl){
 			for(int i = 0; i<maxAnzahl;i++) {
-				spielfigur[i] = new Spielfigur(this.farbe);
+				spielfigur[i] = new Spielfigur(this.farbe, null);
 				
 			}
 			anzahlFiguren++;
