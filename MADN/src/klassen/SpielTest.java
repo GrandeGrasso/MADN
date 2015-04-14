@@ -19,10 +19,14 @@ public class SpielTest {
 		
 		x.starteSpiel();
 		x.wuerfeln();
-		x.werIstAmZug();
+		System.out.println(x.werIstAmZug());
+		x.wuerfeln();
+		System.out.println(x.werIstAmZug());
 		x.wuerfeln();
 		System.out.println(x.werIstAmZug());
 		x.setzeFigurAufPos(x.werIstAmZug().getFiguren().get(0), 1);
+		System.out.println(x.werIstAmZug());
+		x.wuerfeln();
 		System.out.println(x.werIstAmZug());
 		x.wuerfeln();
 		

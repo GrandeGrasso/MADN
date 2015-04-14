@@ -169,6 +169,14 @@ public class Spiel implements iBediener {
 		Wuerfel.getWuerfelErg();
 	}
 		
+	/**
+	 * 
+	 * Methode setzeFigurAufPos()
+	 * 
+	 * Setzt eine Figur auf eine Spielfeldposition
+	 * 
+	 */
+	
 	public void setzeFigurAufPos(Spielfigur sf, int ID){
 		
 		int getID = ID;
