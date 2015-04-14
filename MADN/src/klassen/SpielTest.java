@@ -23,7 +23,6 @@ public class SpielTest {
 		x.wuerfeln();
 		System.out.println(x.werIstAmZug());
 		x.setzeFigurAufPos(x.werIstAmZug().getFiguren().get(0), 1);
-		x.setzeFigurAufPos(x.werIstAmZug().getFiguren().get(1), 1);
 		System.out.println(x.werIstAmZug());
 		x.wuerfeln();
 		
