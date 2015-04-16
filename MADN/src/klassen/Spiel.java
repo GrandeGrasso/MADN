@@ -2,7 +2,7 @@ package klassen;
 
 import interfaces.iBediener;
 
-public class Spiel implements iBediener {
+public class Spiel implements iBediener{
 
 	private static int spielerAnz=0;
 	private final static int spielerMax =4;

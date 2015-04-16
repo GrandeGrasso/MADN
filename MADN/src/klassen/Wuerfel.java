@@ -1,5 +1,7 @@
 package klassen;
 
+import java.io.Serializable;
+
 /**
  * Wuerfel Klasse, Definiert den Wuerfel
  * @author Gruppe B-5
@@ -7,8 +9,12 @@ package klassen;
  *
  */
 
-public class Wuerfel {
+public class Wuerfel implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Spieler sp;
 	
 	/**

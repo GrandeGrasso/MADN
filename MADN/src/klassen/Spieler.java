@@ -1,5 +1,6 @@
 package klassen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,8 +10,12 @@ import java.util.ArrayList;
  */
 
 
-public class Spieler {
+public class Spieler implements Serializable {
  
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	public Wuerfel w;
 	private static final int spielfigurMax =4 ;
