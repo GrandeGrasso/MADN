@@ -87,17 +87,17 @@ public class SpielTestt {
 		assertTrue(s1.getFarbe() != s2.getFarbe());
 	}
 	
-	@Test
-	public void sortiere(){
-	int spielerMax =3;
-		String []sortiert = new String[spielerMax];
-		sortiert[0]= eFarben.ROT;
-		sortiert[1]= eFarben.BLAU;
-		sortiert[2]= eFarben.GRUEN;
-		sortiert[3]= eFarben.GELB;
-		
-		assertTrue(sortiert[0] == eFarben.ROT && sortiert[1] == eFarben.BLAU && 
-				sortiert[2] == eFarben.GRUEN && sortiert[3] == eFarben.GELB);
-	}
+//	@Test
+//	public void sortiere(){
+//	int spielerMax =3;
+//		String []sortiert = new String[spielerMax];
+//		sortiert[0]= eFarben.ROT;
+//		sortiert[1]= eFarben.BLAU;
+//		sortiert[2]= eFarben.GRUEN;
+//		sortiert[3]= eFarben.GELB;
+//		
+//		assertTrue(sortiert[0] == eFarben.ROT && sortiert[1] == eFarben.BLAU && 
+//				sortiert[2] == eFarben.GRUEN && sortiert[3] == eFarben.GELB);
+//	}
 	
 }

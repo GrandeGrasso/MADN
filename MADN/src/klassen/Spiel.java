@@ -1,8 +1,14 @@
 package klassen;
 
-import interfaces.iBediener;
+import java.io.File;
+import java.io.Serializable;
 
-public class Spiel implements iBediener{
+import Datenaustausch.DatenzugriffCSV;
+import Datenaustausch.DatenzugriffSerialisiert;
+import interfaces.iBediener;
+import interfaces.iDatenzugriff;
+
+public class Spiel implements iBediener, Serializable {
 
 	private static int spielerAnz=0;
 	private final static int spielerMax =4;
@@ -12,6 +18,11 @@ public class Spiel implements iBediener{
 	private Spielfigur sf;
 	private Spielbrett sb;
 	private Spielfeld sfeld;
+	private Spieler spielerAmZug;
+	
+	private static iDatenzugriff dZugriff;
+	private static final long serialVersionUID = 1L;
+
 	
 	public Spiel(){
 	}
@@ -236,6 +247,71 @@ public class Spiel implements iBediener{
 		}
 		return s;
 	}
+	
+	
+	public static void setdZugriff(iDatenzugriff dZugriff) {
+		Spiel.dZugriff = dZugriff;
+	}
+
+	public static iDatenzugriff getdZugriff() {
+		return dZugriff;
+	}
+	
+	
+	
+	public void speichernSerial(String s) {
+		try {
+			setdZugriff(new DatenzugriffSerialisiert());
+			File p = new File(s + ".ser");
+			if (p.length() > 0) {
+				p.delete();
+				p = new File(s + ".ser");
+			}
+			getdZugriff().oeffnen(p);
+			getdZugriff().speichern(p, this);
+			System.out.println("Das Spiel wurde gespeichert: " + p.getName());
+			getdZugriff().schliessen(p);
+		} catch (Exception e) {
+			System.out.println("Speichern Serialisiert fehlgeschlagen!");
+		}
+	}
+	
+	
+	
+	
+	public static Spiel ladenSerial(String string) {
+		try {
+			setdZugriff(new DatenzugriffSerialisiert());
+			File f = new File(string);
+			getdZugriff().oeffnen(f);
+			Spiel s = (Spiel) getdZugriff().laden(f);
+			System.out.println("Das Spiel " + f.getName() + " wurde geladen.");
+			getdZugriff().schliessen(f);
+			return s;
+		} catch (Exception e) {
+			System.out.println("Laden Serialisiert fehlgeschlagen!");
+			return null;
+		}
+
+	}
+	
+
+		public Spieler getSpielerAmZug() {
+			return spielerAmZug;
+		}
+		
+		
+		//ToDo--- Laden und speichern der CSV-Datei
+
+	
+
+
+
+
+
+
+	
+
 	
 	
 }

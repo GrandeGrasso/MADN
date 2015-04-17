@@ -11,5 +11,21 @@ public class KI_Aggressiv extends KI {
 		super(s);
 		
 	}
+	
+	@Override
+	public void schlageGegner(){
+		
+	}
+	
+	@Override
+	public void holeFigurAusHomefeld(){
+		
+	}
+	
+	@Override 
+	public void bringeFigurInsZiel(){
+		
+	}
+	
 
 }

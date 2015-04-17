@@ -12,5 +12,20 @@ public class KI_Defensiv extends KI {
 	
 	}
 	
+	@Override
+	public void schlageGegner(){
+		
+	}
+	
+	@Override
+	public void holeFigurAusHomefeld(){
+		
+	}
+	
+	@Override 
+	public void bringeFigurInsZiel(){
+		
+	}
+	
 
 }
