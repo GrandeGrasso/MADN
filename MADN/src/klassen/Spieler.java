@@ -157,4 +157,9 @@ public class Spieler implements Serializable {
 		return (s.getName()==this.getName());
 	}
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 }

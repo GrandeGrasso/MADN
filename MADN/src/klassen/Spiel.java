@@ -252,20 +252,28 @@ public class Spiel implements iBediener, Serializable {
 	public static void setdZugriff(iDatenzugriff dZugriff) {
 		Spiel.dZugriff = dZugriff;
 	}
-
+/**
+ * Getter fuer dZugriff
+ * gibt datenzugriff zuruek
+ * @return dZugriff
+ */
 	public static iDatenzugriff getdZugriff() {
 		return dZugriff;
 	}
 	
+	/**
+	 * Methode speichernSerial
+	 * das Spiel wird serialisiert gespeichert
+	 * @param s
+	 */
 	
-	
-	public void speichernSerial(String s) {
+	public void speichernSerial(String dateiname) {
 		try {
 			setdZugriff(new DatenzugriffSerialisiert());
-			File p = new File(s + ".ser");
+			File p = new File(dateiname + ".ser");
 			if (p.length() > 0) {
 				p.delete();
-				p = new File(s + ".ser");
+				p = new File(dateiname + ".ser");
 			}
 			getdZugriff().oeffnen(p);
 			getdZugriff().speichern(p, this);
@@ -278,11 +286,18 @@ public class Spiel implements iBediener, Serializable {
 	
 	
 	
+	/**
+	 * Methode ladenSerial
+	 * Spiel wird serial geladen
+	 * @param string
+	 * @return null
+	 */
 	
-	public static Spiel ladenSerial(String string) {
+	
+	public static Spiel ladenSerial(String dateiname) {
 		try {
 			setdZugriff(new DatenzugriffSerialisiert());
-			File f = new File(string);
+			File f = new File(dateiname);
 			getdZugriff().oeffnen(f);
 			Spiel s = (Spiel) getdZugriff().laden(f);
 			System.out.println("Das Spiel " + f.getName() + " wurde geladen.");
@@ -296,12 +311,86 @@ public class Spiel implements iBediener, Serializable {
 	}
 	
 
+	   /**
+	    * Getter fuer SpielerAmZug
+	    * git den aktuellen Spieler zurueck
+	    * @return spielerAmZug
+	    */
 		public Spieler getSpielerAmZug() {
 			return spielerAmZug;
 		}
 		
 		
-		//ToDo--- Laden und speichern der CSV-Datei
+		//ToDo--- Laden und speichern der CSV-Datei vervollstaendigen
+		/**
+		 * Methode speichernCSV
+		 * speichert das Spiel als CSV-Datei
+		 * Ueber das interface iDatenzugriff
+		 * @param dateiname
+		 */
+		public void speichernCVS(String dateiname){
+			
+			setdZugriff(new DatenzugriffCSV());
+			
+			File f= new File(dateiname + " .txt");
+			File p = new File(f.getAbsolutePath());
+			
+			if(f.length() > 0){
+				p=new File(f.getAbsolutePath());
+				f.delete();
+			}
+	}
+		
+		
+		/**
+		 * Methode ladenCSV
+		 * laedt das Spiel als CSV-Datei
+		 * Ueber das interface iDatenzugriff
+		 * @param dateiname
+		 * @return spiel
+		 */
+		
+		
+		public static Spiel ladenCSV(String dateiname){
+			
+			try{
+				
+				setdZugriff(new DatenzugriffCSV());
+				File f = new File(dateiname);
+				
+				getdZugriff().oeffnen(f);
+				System.out.println(" Das Spiel" + f.getName() + " wird geladen.");
+				
+				Spiel spiel = new Spiel();
+				
+		
+				return spiel;
+				
+			}
+			catch(Exception e ){
+				System.out.println(" Laden der CSV-Datei ist fehlgeschlagen! ");
+				
+				
+			
+				
+				return null;
+				
+			}
+	
+			
+			
+		
+		}
+
+		
+		public static long getSerialversionuid() {
+			return serialVersionUID;
+		}
+		
+		
+		public Spielbrett getSpielbrett(){
+			return sb;
+		}
 
 	
 

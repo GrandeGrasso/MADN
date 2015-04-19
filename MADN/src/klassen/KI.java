@@ -50,6 +50,8 @@ public abstract class KI implements Serializable  {
 	
 	public void holeFigurAusHomefeld(){
 		
+		
+		
 	}
 	
 	
