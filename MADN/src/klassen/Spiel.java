@@ -1,20 +1,25 @@
 package klassen;
 
+import java.util.ArrayList;
+
 import interfaces.iBediener;
 
 public class Spiel implements iBediener {
 
 	private static int spielerAnz=0;
 	private final static int spielerMax =4;
-	public static Spieler []spI = new Spieler[spielerMax];
+	public static Spieler []spielerliste = new Spieler[spielerMax];
+	private ArrayList<eFarben> spielerfarbe = new ArrayList<eFarben>();
 	static int counter=0;
 	private static int spcounter=0;
 	private Spielfigur sf;
 	private Spielbrett sb;
-	private Spielfeld sfeld;
-	private Spieler sp;
+	
 	
 	public Spiel(){
+		
+		sb=new Spielbrett();
+		
 	}
 
 	/**
@@ -25,18 +30,22 @@ public class Spiel implements iBediener {
 	 * @param name Name des Spielers.
 	 * @param farbe Farbe des Spielers
 	 */
+	
 	@Override
 	public void addSpieler(String name, eFarben farbe) {
 		
 		if(spielerAnz==spielerMax || spcounter == spielerMax)
 			throw new RuntimeException("Maximale Spieleranzahl bereits erreicht!");
 		else  {
-			spI[spcounter]=new Spieler(name, farbe);
-			for (int i = 0; i<=spcounter; i++){
-			//(spI[i].getFarbe().equals(spI[i+].getFarbe())){ throw new RuntimeException("deine mudda is schwul!");}
+			if (spielerfarbe.contains(farbe)){
+				throw new RuntimeException("Diese Farbe ist vergeben!");
 			}
+			if (!spielerfarbe.contains(farbe))
+			spielerliste[spcounter]=new Spieler(name, farbe);
+			spielerfarbe.add(farbe);
 			spcounter++;
-	}
+			
+			}
 	
 	}
 	
@@ -45,23 +54,25 @@ public class Spiel implements iBediener {
 	 * Methode sortiere()
 	 * 
 	 * Sortiert das Objectarray nach den Farben(rot,blau,gruen,gelb).
-	 * @param a Das Objektarray der Klasse Spieler, das nach den Farben
+	 * @param o Das Objektarray der Klasse Spieler, das nach den Farben
 	 * Rot, Blau, Gruen, Gelb sortiert werden soll.
 	 */
+	
 	@Override
-	public void sortiere(Spieler a[]) {
+	public void sortiere(Object o[]) {
+		Spieler []tmp = (Spieler[]) o;
 		Spieler []sortiert = new Spieler[spielerMax];
-		for(int i=0;i<spI.length;i++){
-			if((a[i]).getFarbe()==eFarben.ROT)
-				sortiert[0]=a[i];
-			if((a[i]).getFarbe()==eFarben.BLAU)
-				sortiert[1]=a[i];
-			if((a[i]).getFarbe()==eFarben.GRUEN)
-				sortiert[2]=a[i];
-			if((a[i]).getFarbe()==eFarben.GELB)
-				sortiert[3]=a[i];
+		for(int i=0;i<spielerliste.length;i++){
+			if((tmp[i]).getFarbe()==eFarben.ROT)
+				sortiert[0]=tmp[i];
+			if((tmp[i]).getFarbe()==eFarben.BLAU)
+				sortiert[1]=tmp[i];
+			if((tmp[i]).getFarbe()==eFarben.GRUEN)
+				sortiert[2]=tmp[i];
+			if((tmp[i]).getFarbe()==eFarben.GELB)
+				sortiert[3]=tmp[i];
 		}
-		spI=sortiert;
+		spielerliste=sortiert;
 	}
 	
 	/**
@@ -73,24 +84,18 @@ public class Spiel implements iBediener {
 	 */
 	@Override
 	public void starteSpiel() {
-		sb=new Spielbrett();
-		for(int i=0;i<spI.length;i++){
-		FigurAnSpieler(spI[i]);}
-		sortiere(spI);
-		System.out.println(this.toString());
-		/*
-		String s="";
-		s+= "Es sind folgende Spieler im Spiel: \n";
-		for(int i=0;i<spI.length;i++){
-			s+= spI[i].getName() + " | ";
-		}
-		System.out.println(s);
-		*/
-		for(int i=0;i<spI.length;i++){
-			if(spI[i].getFarbe()==eFarben.ROT){
+		
+		for(int i=0;i<spielerliste.length;i++){
+		FigurAnSpieler(spielerliste[i]);}
+		sortiere(spielerliste);
+		
+
+		for(int i=0;i<spielerliste.length;i++){
+			if(spielerliste[i].getFarbe()==eFarben.ROT){
 				System.out.println("--- Das Spiel beginnt! ---");
-				System.out.println("Spieler: " + spI[i].getName() + " darf wuerfeln...");
-				break;
+				System.out.println(this.toString());
+				System.out.println("Spieler: " + spielerliste[i].getName() + " darf wuerfeln...");
+				
 			}
 		}
 	}
@@ -103,7 +108,9 @@ public class Spiel implements iBediener {
 	 * @param spieler Ein Objekt der Klasse Spieler
 	 */
 	@Override
-	public void FigurAnSpieler(Spieler spieler){
+	public void FigurAnSpieler(Object  o){
+		
+		Spieler spieler = (Spieler) o;
 		
 		for(int i = 0; i<4;i++){
 			sf = new Spielfigur(spieler.getFarbe(), spieler);
@@ -159,6 +166,20 @@ public class Spiel implements iBediener {
 	
 	/**
 	 * 
+	 * Methode setzeFigurAufPos()
+	 * 
+	 * Setzt eine Figur auf eine Position auf dem Spielbrett
+	 * 
+	 */
+	
+	@Override
+	public void setzeFigurAufPos(Object o, int ID) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * 
 	 * Methode wuerfeln()
 	 * 
 	 * Ruft die Methode getWuerfelErg() in der Klasse Wuerfel auf.
@@ -201,34 +222,23 @@ public class Spiel implements iBediener {
 		
 		switch(counter){
 		case 0: 
-			spieler = spI[0];
+			spieler = spielerliste[0];
 			break;
 		case 1:
-			spieler = spI[1];
+			spieler = spielerliste[1];
 			break;
 		case 2:
-			spieler = spI[2];
+			spieler = spielerliste[2];
 			break;
 		case 3:
-			spieler = spI[3];
+			spieler = spielerliste[3];
 			break;
 		}
 		return spieler;
 		
 	}
 	
-	/**
-	 * 
-	 * Getter
-	 * 
-	 * @param spieler
-	 * @return Gibt den Spieler zurück
-	 */
-	
-	public Spieler getSpieler(Spieler spieler){
-		
-		return spI[0];
-	}
+
 	
 	/**
 	 * 
@@ -239,7 +249,7 @@ public class Spiel implements iBediener {
 	 */
 	@Override
 	public void beendeSpiel() {
-			spI = null;
+			spielerliste = null;
 			System.out.println("--- Das Spiel wurde beendet! ---");
 		
 	}
@@ -255,11 +265,12 @@ public class Spiel implements iBediener {
 	public String toString(){
 		String s="";
 		s+= "Es sind folgende Spieler im Spiel: \n";
-		for(int i=0;i<spI.length;i++){
-			s+= spI[i].getName() + " | ";
+		for(int i=0;i<spielerliste.length;i++){
+			s+= spielerliste[i].getName() + " | ";
 		}
 		return s;
 	}
+
 	
 	
 }

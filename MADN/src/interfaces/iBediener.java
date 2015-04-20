@@ -7,12 +7,13 @@ import klassen.eFarben;
 public interface iBediener {
 
 	public void addSpieler(String name, eFarben farbe);
-	public void sortiere(Spieler[] a); 
+	public void sortiere(Object[] o); 
 	public void starteSpiel();
 	public void wuerfeln();
-	public void setzeFigurAufPos(Spielfigur sf, int ID);
+	public void setzeFigurAufPos(Object o, int ID);
 	public Spieler werIstAmZug();
-	public void FigurAnSpieler(Spieler spieler);
+	public void FigurAnSpieler(Object o);
 	public void beendeSpiel();
+
 	
 }

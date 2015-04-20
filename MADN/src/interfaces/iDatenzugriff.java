@@ -6,7 +6,7 @@ import java.util.Properties;
 public interface iDatenzugriff {
 
 	
-public void oeffnen(Properties p) throws IOException;
+	public void oeffnen(Properties p) throws IOException;
     
 	public void schreiben(Object object) throws IOException;
 
