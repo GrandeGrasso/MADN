@@ -1,13 +1,19 @@
 package klassen;
 
+import java.io.Serializable;
+
 /**
  * Klasse Spielfigur, Definiert die Spielfigur 
  * @author  Gruppe B-5
  * @version 1.1
  */
 
-public class Spielfigur {
+public class Spielfigur implements Serializable  {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Spieler spieler;
 	private Spielfeld sfeld;
 	private eFarben farbeFigur;

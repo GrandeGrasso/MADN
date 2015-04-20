@@ -1,5 +1,7 @@
 package klassen;
 
+import java.io.Serializable;
+
 
 /**
  * Spielfeld, Definiert ein Spielfeld
@@ -8,9 +10,13 @@ package klassen;
  *
  */
 
-public class Spielfeld {
+public class Spielfeld implements Serializable {
 	
-  private eFeldTyp feldtyp;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private eFeldTyp feldtyp;
 	private static int counter = 0;
 	private int ID;
 	private boolean hatSpielfigur = false;

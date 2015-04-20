@@ -1,5 +1,6 @@
 package klassen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -10,7 +11,12 @@ import java.util.LinkedList;
  *
  */
 
-public class Spielbrett {
+public class Spielbrett implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private LinkedList<Spielfeld> spielbrett;
 	private ArrayList<Spielfeld> homerot;

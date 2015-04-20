@@ -2,90 +2,131 @@ package Datenaustausch;
 
 import interfaces.iDatenzugriff;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Properties;
+import java.io.PrintWriter;
+
+/**
+ * Klasse DatenzugriffCSV -in eine CSV-Datei
+ * implementiert das Interface iDatenzugriff
+ * @author Gruppe B-5
+ * @version 1.0
+ *
+ */
+
 
 public class DatenzugriffCSV implements iDatenzugriff {
 
-	private BufferedReader br;
-	private BufferedWriter bw;
+	/**
+	 * Attribtut reader vom Typ BufferdReader
+	 * dient zum lesen
+	 */
+	private BufferedReader reader=null;
+	/**
+	 * Attribut writer vom Typ PrintWriter
+	 * dient zum schreiben
+	 */
+	private PrintWriter writer=null;
 	
 	/**
-	 * Diese Methode öffnet die CSV Datei.
-
+	 * Ueberschriebene Methode oeffnen
+	 * vom Interface iDatenzugriff 
+	 * zum oeffnen der Datei
+	 * @param f
 	 */
 	@Override
-	public void oeffnen(Properties p) throws IOException {
-		String dateiname = p.getProperty("Dateiname");
-		
-		if(dateiname == null) {
-			throw new IOException("Dateiname wurde nicht definiert!");
-		}
-		
-		
-		
-		if("s".equals(p.getProperty("Modus"))) {
-			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname)));
-		} else if("l".equals(p.getProperty("Modus"))) {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname)));
-		} else {
-			throw new IOException("Modus wurde nicht definiert!");
-		}
-	}
+	public void oeffnen(File f) throws IOException, FileNotFoundException {
 	
-	/**
-	 * Diese Datei schreibt in die CSV
-
-	 */
-	@Override
-	public void schreiben(Object object) throws IOException {
-		if (bw == null) {
-			throw new RuntimeException("Der Reader ist nicht offen");
-		}
-		
-			bw.write((String) object);
+		try{
+			boolean zumLesen=(f.length()!=0);
 			
+			if(zumLesen){
+				reader=new BufferedReader(new FileReader(f));
+			}
+			else 
+				writer=new PrintWriter(new FileWriter(f));
+		}
+		catch(Exception e){
+			throw new RuntimeException(e.getMessage());
+		}
 		
 	}
 	
 	/**
-	 * Diese Methode liest aus der Datei
-	
+	 * Ueberschriebene Methode laden vom
+	 * Interface iDatenzugriff zum laden der Datei
+	 * @param f
+	 * @return null
 	 */
+	
+	
 	@Override
-	public Object lesen() throws IOException {
-		if (br == null) {
-			throw new RuntimeException("Der Reader ist nicht offen");
+	public Object laden(File f) throws IOException {
+		
+		if(reader==null){
+			throw new RuntimeException("Reader ist nicht offen");
 		}
-		try {
-			return br.readLine();
-		} catch (IOException e) {
-			System.err.println("Fehler bei Ein-/Ausgabe: "+e);
+		try{
+			return reader.readLine();
+		}
+		catch (IOException e){
+			System.out.println("Fehler bei der Ein/- und Ausgabe: "+e);
+			
 			return null;
 		}
 	}
 	
 	/**
-	 * Diese Methode schließt die CSV - Datei
-
+	 * Ueberschriebene Methode speichern 
+	 * vom Interface iDatenzugriff zum speicher der Datei
+	 * @param f
+	 * @param o
 	 */
+	
+	
 	@Override
-	public void schliessen(Object object) throws IOException {
-		if(bw != null) {
-			bw.close();
-			bw = null;
+	public void speichern(File f, Object o) throws IOException {
+		
+		if(writer==null){
+			throw new RuntimeException(" Reader ist nicht offen");
+		}
+		writer.println(o);
+		
+	}
+	
+	/**
+	 * Ueberschriebene Methode vom 
+	 * Interface iDatenzugriff zum schliessen der Datei
+	 * @param f
+	 */
+
+	@Override
+	public void schliessen(File f) throws IOException, FileNotFoundException {
+		
+		try{
+			if(reader != null){
+				reader.close();
+			}
+		}
+		catch(IOException e){
+			System.out.println(" Fehler bei der Ein-/und Ausgabe: " +e);
+		}
+		if(writer!=null){
+			writer.close();
 		}
 		
-		if(br != null) {
-			br.close();
-			br = null;
-		}
 	}
+
+
+
+	
+	
+	
+	
+	
 	
 	
 	

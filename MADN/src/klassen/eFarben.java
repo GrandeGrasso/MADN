@@ -1,5 +1,7 @@
 package klassen;
 
+import java.io.Serializable;
+
 /**
  * Farben Enum, Definiert die Spielfarben
  * @author Gruppe B-5
@@ -7,7 +9,7 @@ package klassen;
  *
  */
 
-public enum eFarben {
+public enum eFarben implements Serializable {
 	
 	ROT, BLAU, GELB, GRUEN;
 
