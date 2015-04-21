@@ -1,5 +1,7 @@
 package Datenaustausch;
 
+import interfaces.iBediener;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,52 +15,36 @@ public class SpielTestSpeichern {
 	public static void main(String[] args) throws IOException {
 		
 	
-		Spiel spiel = new Spiel();
-		
+iBediener bediener = new Spiel();
 
-		spiel.addSpieler("spieler1", eFarben.ROT);
-		spiel.addSpieler("spieler2", eFarben.BLAU);
-		spiel.addSpieler("spieler3", eFarben.GELB);
-		spiel.addSpieler("spieler4", eFarben.GRUEN);
+
 		
-	
+bediener.addSpieler("kathi",eFarben.GELB, false,(Spiel) bediener);
+bediener .addSpieler("yunus", null, false,(Spiel)bediener);
+bediener .addSpieler("stefo",eFarben.GRUEN, false,(Spiel)bediener);
+bediener .addSpieler(null, null, true, (Spiel)bediener);
+bediener .zeigeSpieler();
 		
-		
-		spiel.starteSpiel();
-		spiel.getSpielbrett();
-	
-		
+		bediener.wuerfeln();
+		bediener.wuerfeln();
+		bediener.wuerfeln();
+		bediener.wuerfeln();
+		bediener.speichernCSV("s");
+		bediener.speichernSerial("s");
+
 		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.println("Spielstand wird gespeichert !");
+		System.out.println("Spielstand wird gespeichert!");
 		
 		String line=reader.readLine();
 		
-		if("savecsv".equals(line)){
-			spiel.speichernCVS("menschAergereDichNicht.csv");
+		if("safecsv".equals(line)){
+			Spiel.ladenCSV("menschAergereDichNicht.csv");
 		}
 		
-		if("save".equals(line)){
-			spiel.speichernSerial("menschAergereDichNicht.ser");
+		if("safe".equals(line)){
+			Spiel.ladenSerial("menschAergereDichNicht.ser");
 		}
-		
-		spiel.werIstAmZug();
-		spiel.getSpielbrett();
-	}
-	
-	
-
-		
-		
-
-
-
-	
-
-
-		
-		
-		
 		
 		
 		
@@ -71,4 +57,4 @@ public class SpielTestSpeichern {
 		
 	}
 
-
+}

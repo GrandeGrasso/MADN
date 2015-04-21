@@ -3,6 +3,8 @@ package klassen;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+
 /**
  * Klasse Spieler, Definiert den Spieler
  * @author  Gruppe B-5
@@ -12,146 +14,170 @@ import java.util.ArrayList;
 
 public class Spieler implements Serializable {
  
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String name;
-	public Wuerfel w;
-	private static final int spielfigurMax =4 ;
-	private ArrayList <Spielfigur> spielfiguren = new ArrayList<Spielfigur>();
-	private int spielfigurAnz=0;
-	private eFarben farbe;
-	private static final int anzahlKIMax=3;
-	private ArrayList<KI> KI = new ArrayList<KI>();
-//	private boolean gewonnen = false;
 	
+	private static final long serialVersionUID = 1L;
+	
+	private static final int spielfigurMax =4 ;
+	private static Spielfigur []figur = new Spielfigur[spielfigurMax];
+	
+	
+	private String name;
+	private eFarben farbe;
+
+	private Wuerfel wuerfel;
+	private KI ki;
+
 	/**
 	 * Konstruktor
 	 * 
-	 * Erzeugt für jeden Spieler einen Wuerfel.
-	 * 
-	 * @param name Name des Spielers Typ String
-	 * @param farbe Farbe des Spielers aus einem enum
-	 * 
+	 * @param name
+	 * @param farbe
 	 */
-	
-	public Spieler(String name, eFarben farbe){
-		setName(name);
-		setFarbe(farbe);
-		for(int i=0;i<anzahlKIMax;i++){
-			KI.add(new KI_Aggressiv(this));
+
+	public Spieler(String name, eFarben farbe, boolean ki,Spiel spiel) {
+		try {
+			if (this.getName() == null && this.getFarbe() == null && ki == true) {
+				this.setKI(randomKI(spiel));;
+				this.setName(this.getKI().toString());
+				this.setFarbe(farbe);
+				for (int i = 0; i < 4; i++) {
+					figur[i] = new Spielfigur(i, farbe, 0);
+				}
+			} else {
+				this.setName(name);
+				this.setFarbe(farbe);
+				for (int i = 0; i < 4; i++) {
+					figur[i] = new Spielfigur(i, farbe, 0);
+				}
+			}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
 		}
-		for(int i=0;i<anzahlKIMax;i++){
-			KI.add(new KI_Defensiv(this));
-		}
-		w = new Wuerfel();
-		
 	}
-	
+
 	/**
-	 * Fuegt einem Array spielfigur Spielfiguren hinzu
-	 * 	
+	 * Setter f�r Name
+	 * 
+	 * @param name
 	 */
-	
-	public void figurHinzufuegen(Spielfigur sf){
-			
-		if (spielfigurAnz > spielfigurMax)
-			throw new RuntimeException("figurHinzufügen: Maximale Anzahl bereits erreicht!");
-		
-		spielfiguren.add(sf);
-	  spielfigurAnz++;
-	}
-	
-	/**
-	 * Setter
-	 *
-	 * @param name Spielername Typ String
-	 */
-	
-	public void setName(String name) {
-		
-		if ((name==null)||(name.length()<2)){
-			throw new RuntimeException("Falsche Eingabe!");
-			
+
+	private void setName(String name) {
+		if ((name == null) || (name.length() < 2)) {
+			throw new RuntimeException("Falsch");
 		}
-		this.name=name;
-	}  	
-	
+		this.name = name;
+	}
+
 	/**
-	 * Setter
+	 * Getter fuer Spielfigur
 	 * 
-	 * @param farbe Uebergabewert aus dem enum eFarben
+	 * @return figur
 	 */
-	
-	public void setFarbe(eFarben farbe) {
-		if( farbe == eFarben.ROT || farbe == eFarben.GRUEN || farbe == eFarben.GELB || farbe == eFarben.BLAU)
-		this.farbe = farbe;
-		else throw new RuntimeException ("Falsche Eingabe!");
-	} 
-	
+
+	public Spielfigur[] getSpielfigur() {
+		return figur;
+	}
+
 	/**
-	 * Getter
+	 * Getter fuer Name
 	 * 
-	 * @return Name des Spielers
+	 * @return name
 	 */
-	
+
 	public String getName() {
-		return name;
+		return this.name;
 	}
-	
+
 	/**
-	 * Getter
+	 * Setter fuer Farbe
 	 * 
-	 * @return Gibt die Farbe der Spielfigur zurueck
+	 * @param farbe
 	 */
-	
+	public void setFarbe(eFarben farbe) {
+		this.farbe = farbe;
+		this.setSpielfiguren(farbe);
+	}
+
+	/**
+	 * Methode Werfen
+	 * 
+	 * @return wuerfel.werfen(); Der Spieler benutzt den Wuerfel
+	 */
+
+	public int werfen() {
+		return wuerfel.werfen();
+	}
+
+	/**
+	 * Getter fuer Farbe
+	 * 
+	 * @return farbe
+	 */
+
 	public eFarben getFarbe() {
-		return this.farbe;
+		return farbe;
 	}
-	
+
+	public KI getKI() {
+		return ki;
+	}
+
+	private void setKI(KI ki) {
+		this.ki = ki;
+	}
+
+	private KI randomKI(Spiel spiel) {
+		int zufallszahl = myRandom(1, 4);
+		
+		if (zufallszahl == 1) {
+			return new KI_Aggressiv(this,spiel);
+		} else {
+			return new KI_Defensiv(this,spiel);
+		}
+	}
+
+	public static int myRandom(int low, int high) {
+		return (int) (Math.random() * (high - low) + low);
+	}
+
 	/**
-	 * Getter
+	 * Methode gibt ID, Farbe und Position der jeweiligen Spielfiguren wieder
 	 * 
-	 * @return Gibt die Anzahl der Spielfiguren im Spiefiguren Array zurueck
+	 * /** Methode alleSpielfiguren gibt alle Spielfiguren des jeweiligen
+	 * Spielers aus
 	 */
-	
-	public int getAnzahlFiguren() {
-		return spielfigurAnz;
+	public void alleSpielfiguren() {
+		for (int i = 0; i < 4; i++) {
+			System.out.println("ID : " + figur[i].getID() + " Farbe : "
+					+ figur[i].getFarbe() + " Position : "
+					+ figur[i].getPosition());
+		}
 	}
-	
-//	public void setzeSpielfigur(){
-//		
-//	}
-	public ArrayList<Spielfigur> getFiguren(){
-		return spielfiguren;
-	}
-	
+
 	/**
-	* toString
-	*  
-	* @return Gibt Spielername und -farbe zurueck
-	*/
-	
-	@Override
-	public String toString(){
-		return "Spieler "+ getName();
+	 * setzt die Spielfigur
+	 * 
+	 * @param farbe
+	 */
+	private void setSpielfiguren(eFarben farbe) {
+
+		for (int i = 0; i < 4; i++) {
+			figur[i] = new Spielfigur(i, farbe, 0);
+		}
 	}
 	
-	/**
-	* equals
-	* 
-	* @param o Das Objekt, mit dem verglichen werden soll.
-	* @return false Gibt false zurueck, wenn Objekt nicht instance of Spieler ist
-	* @return true Gibt true zurueck, wenn Objekt den gleichen Namen hat wie das Vergleichsobjekt 
-	*/
 	
+	
+	
+	
+
 	@Override
 	public boolean equals(Object o){
 		if (!(o instanceof Spieler)) return false;
 		Spieler s=(Spieler)o;
 		return (s.getName()==this.getName());
 	}
+	
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;

@@ -7,99 +7,71 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Properties;
+
 import interfaces.iDatenzugriff;
 
-/**
- * Klasse DatenzugriffSerialisiert
- * Serialisierung des Spiels
- * implementiert das interface iDatenzugriff
- * @author Gruppe B-5
- * @version 1.0
- *
- */
+
 
 public class DatenzugriffSerialisiert implements iDatenzugriff{
 	
 	
 	
-	private ObjectOutputStream objectOut=null;
-	private ObjectInputStream objectIn=null;
-	
-	
-	public void oeffnen(File f) {
-		try{
-			boolean zumLesen =(f.length()!=0);
-			if(zumLesen){
-				objectIn=new ObjectInputStream(new FileInputStream(f));
-			}else{
-				objectOut=new ObjectOutputStream(new FileOutputStream(f));
+	private ObjectOutputStream oos;
+	private ObjectInputStream ois;
+	private boolean lesend = false;
+
+	@Override
+	public void oeffnen(Properties p) throws IOException {
+		try {
+			if (lesend) {
+				ois = new ObjectInputStream(new FileInputStream("datei.ser"));
+			} else {
+				oos = new ObjectOutputStream(new FileOutputStream("datei.ser"));
 			}
-		}
-		catch(FileNotFoundException e){
+		} catch (FileNotFoundException e) {
 			System.err.println("File not found");
 		}
-		catch(IOException e){
-			System.err.println("Fehler bei Ein-/Ausgabe: "+e);
-		}
+
 	}
-	
-public Object laden(File f) throws IOException {
-		
+
+	@Override
+	public void schreiben(Object object) throws IOException {
 		try{
-			Object m= objectIn.readObject();
-			return m;
+		oos.writeObject(object);
 		}
-		catch(IOException e){
-			System.err.println("Fehler bei Ein-/Ausgabe: "+e);
+		catch(FileNotFoundException e){
+			System.err.println("Konnte Datei nicht erzeugen");
+		}catch (Exception e){
+			System.err.println("Fehler beim Schliessen");
 		}
-		catch(ClassNotFoundException e){
-			System.err.println("Class not found");
-		}
-		return null;		
 	}
 
-	
-	
-	public void speichern(File f, Object o) throws IOException {
-		
+	@Override
+	public Object lesen() throws IOException {
+		if (ois == null) {
+			throw new RuntimeException("Der Reader ist nicht offen");
+		}
 		try {
-			objectOut.writeObject(o);
-		}
-		catch (FileNotFoundException e){
-			System.err.println("Konnte Datei nicht erzeugen.");
-		}
-		catch(IOException e){
-			System.err.println("Fehler bei Ein-/Ausgabe: "+e);
-		}
-		catch(Exception e){
-			System.err.println("Fehler beim Schlieﬂen");			
+			return ois.readObject();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Fehler bei Ein-/Ausgabe: " + e);
+			return null;
 		}
 	}
-	
-	
-	
 
-	public void schliessen(File f) {
-		if(objectIn!=null){
-			try{
-				objectIn.close();										   
-			}
-			catch(Exception e){
-				System.err.println("Fehler beim Schlieﬂen");
-			}
+	@Override
+	public void schliessen(Object object) throws IOException {
+		if (oos != null) {
+			oos.close();
+			oos = null;
 		}
-		if(objectOut!=null){
-			try{
-				objectOut.close();										   
-			}
-			catch(Exception e){
-				System.err.println("Fehler beim Schlieﬂen");
-			}
+
+		if (ois != null) {
+			ois.close();
+			ois = null;
 		}
-		
 	}
-
-	
 	
 	
 	

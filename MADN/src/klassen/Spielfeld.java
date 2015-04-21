@@ -3,8 +3,10 @@ package klassen;
 import java.io.Serializable;
 
 
+
+
 /**
- * Spielfeld, Definiert ein Spielfeld
+ * Klasse Spielfeld
  * @author Gruppe B-5
  * @version 1.0
  *
@@ -12,121 +14,72 @@ import java.io.Serializable;
 
 public class Spielfeld implements Serializable {
 	
-  /**
-	 * 
-	 */
+ 
 	private static final long serialVersionUID = 1L;
-private eFeldTyp feldtyp;
-	private static int counter = 0;
-	private int ID;
-	private boolean hatSpielfigur = false;
-	private Spielfigur sfigur;	
-	
 	
 	/**
-	 *  Konstruktor
-	 *  
-	 *  @param feldtyp Uebergabewert aus dem enum eFeldTyp, definiert die Spielfeldart
+	 * Attribute
+	 * 
+	 * @param id
+	 * @param hatSpielfigur
+	 * 
 	 */
+	private int id;
+	private Spielfigur figur;
 	
-	public Spielfeld(eFeldTyp feldtyp){ 	
-		setFeldTyp(feldtyp);		
-		
-		counter++;
-		ID = counter;				
+	public Spielfeld(int id){
+		this.setid(id);
 	}
 
 	/**
-	 * Setter Feldtyp
-	 * 
-	 * @param feldtyp Uebergabewert aus enum eFeldTyp (Starfeld, Zielfeld, Lauffeld, Homefeld)
+	 * Konstruktor. Setzt die werte für ID und hatSpielfigur
 	 */
-	
-	private void setFeldTyp(eFeldTyp feldtyp){		
-		this.feldtyp = feldtyp;
+
+	public Spielfeld(int id, Spielfigur figur) {
+		this.setid(id);
+		this.setFigur(figur);
 	}
-	
-	/**
-	 * Getter FeldTyp
-	 * 
-	 * @return Gibt den FeldTyp zurueck (Start-, Ziel-, Lauf-, Homefeld)
-	 */
-	
-	public eFeldTyp getFeldTyp() {		
-		return feldtyp;
-	}
-	
+
 	/**
 	 * 
-	 * Getter ID
-	 * 
-	 * @return Gibt die SpielfeldID zurueck
+	 * @return Gibt die Id des Spielfeldes zurück.
 	 */
-	
-	public int getID() {	
-		return this.ID;
+
+	public int getid() {
+		return id;
 	}
-	
+
 	/**
-	 * Setzt eine Spielfigur auf ein Spielfeld
+	 * Setzt die Id des Spielfeldes.
 	 * 
-	 * @param sfigur Uebergabewert vom Typ Spielfigur
+	 * @param id
 	 */
-	
-	public void setSpielfigur(Spielfigur sfigur) {
-		if(this.hatSpielfigur==false){
-			this.sfigur = sfigur;
-			this.hatSpielfigur = true;
-			}
-		else System.out.println("Es befindet sich eine Figur auf dem Feld, kicken?");
-		
-	}
-	
-	/**
-	 * Getter
-	 * 
-	 * @return Gibt die Spielfigur auf dem Spielfeld zurueck
-	 */
-	
-	public Spielfigur getSpielfigur(){
-		return sfigur;
-	}
-	
-	/**
-	 * Entfernt die Spielfigur vom Spielfeld
-	 * 
-	 */
-	
-	public void removeSpielfigur(){
-		if (this.hatSpielfigur == true){
-			sfigur = null;
-			System.out.println("Die Figur auf dem " +this +" wurde entfernt!");
-			this.hatSpielfigur = false;
+
+	private void setid(int id) {
+		if (id <= 0 && id > 41) {
+			throw new RuntimeException("Bitte gültige Id eingeben!");
 		}
-			else throw new RuntimeException("Keine Figur auf dem Feld!");		
+		this.id = id;
 	}
-	
+
 	/**
-	* istFeldBelegt()
-	* 
-	* @return false Gibt false zurueck, wenn Spielfeld nicht belegt ist.
-	* @return true Gibt true zurueck, wenn auf einem Spielfeld bereits eine Figur steht.
-	*/
-	public boolean istFeldBelegt(){
-		if(this.hatSpielfigur==true){
-			return true;
-			}
-		return false;
-	}
-	/**
-	 * toString
+	 * Getter fuer hatSpielfigur
 	 * 
-	 * Gibt die SpielfeldID und den Spielfeldtyp als String zurueck
-	 *  
+	 * @return hatSpielfigur
 	 */
-	@Override
-	public String toString(){	
-		return "SpielfeldID: "+this.getID()+" SpielfeldTyp: "+this.getFeldTyp()+" Spielfigur: "+this.getSpielfigur();
+
+	public Spielfigur getFigur() {
+		return this.figur;
+	}
+
+	/**
+	 * Setter fuer hatSpielfigur
+	 * 
+	 * @param hatSpielfigu
+	 */
+
+	public void setFigur(Spielfigur figur) {
+		this.figur = figur;
 	}
 	
 }

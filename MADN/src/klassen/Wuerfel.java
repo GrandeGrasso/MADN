@@ -11,64 +11,30 @@ import java.io.Serializable;
 
 public class Wuerfel implements Serializable  {
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	private Spieler sp;
-	
-	/**
-	 * Konstruktor
-	 * 
-	 */
-	
-	public Wuerfel(){
-		
+	private static byte festezahl = 0;
+
+	public static void main(String[] args) {
+			werfen();
 	}
-	
-	/**
-	 * Methode werfen()
-	 * 
-	 * @return Gibt einen Integer zwischen 1 und 6 zurueck
-	 */
-	
-	public static String werfen(){		
-		int augenzahl = (int)((Math.random()*6)+1);
-		 String s="";
-		 if(augenzahl==6){
-			 s+= "Glueckwunsch du hast eine " + augenzahl + " gewuerfelt & darfst nochmal wuerfeln :) ...";
-		 	 Spiel.counter--;
-		 }
-		 else 
-			 s+= "Du hast eine " + augenzahl + " gewuerfelt...";
-		 	 Spiel.counter++;
-		 return s;
-  }
-	
-	public static void getWuerfelErg(){
-		System.out.println(werfen());;
+
+	public static int werfen() {
+			if (festezahl==0){
+			int anzAugen = (int) (6 * Math.random() + 1);
+			System.out.println("Es wurde eine  " + anzAugen + " gewuerfelt!");
+			return anzAugen;
+			}
+			return festezahl;
 	}
-	/**
-	 * 
-	 * Oeffentlicher Setter fuer Spieler
-	 * 
-	 * @param spieler Uebergabewert vom Typ Spieler
-	 */
-	
-	public void setSpieler(Spieler spieler){
-		this.sp = spieler;	
+	public void zufallsZahl(){
+			festezahl = 0;
+				
+			}
+	public  void festeZahl(byte zahl){
+			this.festezahl = zahl;
+			
 	}
-	
-	/**
-	 * Getter fuer Spieler
-	 * 
-	 * @return Gibt den Spieler des Wuerfels zurueck
-	 */
-	
-	public Spieler getSpieler(){
-		return this.sp;
-	}
-	
 }
 	
 

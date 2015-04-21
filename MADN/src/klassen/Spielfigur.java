@@ -2,6 +2,8 @@ package klassen;
 
 import java.io.Serializable;
 
+
+
 /**
  * Klasse Spielfigur, Definiert die Spielfigur 
  * @author  Gruppe B-5
@@ -10,121 +12,130 @@ import java.io.Serializable;
 
 public class Spielfigur implements Serializable  {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	private Spieler spieler;
-	private Spielfeld sfeld;
-	private eFarben farbeFigur;
+	
+	private Spieler sp;
+	private int zaehler = 0;
+	private eFarben farbe;
 	private int pos;
+	private int id;
+
+	
+
+	public Spielfigur() {
+
+	}
 
 	/**
 	 * Konstruktor
 	 * 
-	 * @param farbeFigur Uebergabewert der die Farbe der Spielfigur bestimmt
-	 * @param spieler Uebergabewert vom Typ Spieler
+	 * @param id
+	 * @param farbe
+	 * @param position
+	 *            dem Konstruktor wird die ID, die Farbe und die Position
+	 *            übergeben
 	 */
-	
-	public Spielfigur(eFarben farbeFigur, Spieler spieler){
-		setFarbe(farbeFigur);
-		setSpieler(spieler);
-	}
-	
-	/**
-	 * Setter 
-	 * 
-	 * @param sfeld Uebergabewert vom Typ Spielfeld
-	 */
+	public Spielfigur(int id, eFarben farbe, int position) {
 
-	public void setSpielfeld(Spielfeld sfeld) {
-		if (sfeld == null) throw new RuntimeException("Falsche Eingabe!");
-		else this.sfeld = sfeld;		
-	}
-	
-	/**
-	 * Setter
-	 * 
-	 * @param pos Uebergabewert vom Typ Integer
-	 */
-
-	public void setPos(int pos) {	
-		if(sfeld.istFeldBelegt()==true)
-			System.out.println("Es befindet sich eine Figur auf diesem Spielfeld. Schlagen?");
-		else{
-			this.pos = pos;
-			System.out.println(""+this +" wurde auf Position: " + pos + " gelegt.");
-			}
-	}
-	
-	/**
-	 * Setter
-	 * 
-	 * @param farbeFigur Uebergabewert aus dem Enum eFarben
-	 */
-	
-	private void setFarbe(eFarben farbeFigur) {	
-		this.farbeFigur = farbeFigur;		
-	}
-	
-	/**
-	 * Setter
-	 * 
-	 * @param spieler Uebergabewert vom Typ Spieler
-	 */
-	
-	public void setSpieler(Spieler spieler) {		
-		this.spieler = spieler;		
-	}
-	
-	/**
-	 * Getter
-	 * 
-	 * @return Gibt den Spieler der Spielfigur zurueck
-	 */
-	
-	public Spieler getSpieler() {		
-		return spieler;
+		this.setFarbe(farbe);
+		this.setPosition(position);
+		this.setID(id);
 	}
 
 	/**
-	 * Getter
-	 * 
-	 * @return Gibt das Spielfeld, auf dem die Figur steht zurueck
+	 * @return farbe Getter fuer die Farbe
 	 */
-	
-	public Spielfeld getSfeld() {
-		return sfeld;
+
+	public eFarben getFarbe() {
+		return farbe;
 	}
 
 	/**
-	 * Getter
-	 * 
-	 * @return Gibt die Farbe der Spielfigur zurÃ¼ck
+	 * @param farbe
+	 *            setter fuer die Farbe
 	 */
-	
-	public eFarben getFarbeFigur() {
-		return farbeFigur;
+
+	public void setFarbe(eFarben farbe) {
+		this.farbe = farbe;
 	}
 
 	/**
-	 * Getter
-	 * 
-	 * @return Gibt die aktuelle Position der Spielfigur zurueck
+	 * @return Position getter fuer die Position
 	 */
-	
-	public int getPos() {
+
+	public int getPosition() {
+		if (pos > 40) {
+			pos = pos - 40;
+		}
 		return pos;
 	}
-	
+
 	/**
-	 * toString
-	 * 
-	 * Gibt den Spieler, die Farbe und die aktuelle Position der Spielfigur zurueck
+	 * @param position
+	 *            setter fuer die Position
 	 */
+
+	public void setPosition(int position) {
+
+		if (position > 40) {
+			position = position - 40;
+		}
+		this.pos = position;
+	}
+
+	/**
+	 * @returnID getter fuer die ID
+	 */
+
+	public int getID() {
+		return id;
+	}
+
+	/**
+	 * @param ID
+	 *            setter fuer die ID
+	 */
+	public void setID(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return Counter Getter fuer den Counter
+	 */
+
+	public int getCounter() {
+
+		return zaehler;
+	}
+
+	/**
+	 * @param count
+	 *            setter fuer den Counter
+	 */
+	public void setCounter(int count) {
+		this.zaehler += count;
+	}
+
+	public String getSpielerName() {
+		if (sp.getFarbe().equals(this.getFarbe())) {
+			return sp.getName();
+		}
+		return "";
+	}
+
+	/**
+	 * ueberschriebene toString
+	 * 
+	 * @return SpielfigurID
+	 * @return position
+	 * @return farbe
+	 */
+
 	@Override
 	public String toString() {
-		return "Spielfigur von: "+this.getSpieler()+" Farbe: "+this.getFarbeFigur();	
+		return "SpielfigurID " + this.getID() + "Position "
+				+ this.getPosition() + "Farbe" + this.getFarbe();
 	}
 	
 }

@@ -6,32 +6,28 @@ import javax.xml.stream.events.StartElement;
 
 
 
+
+
 public class SpielTest {
 
 	public static void main(String[] args) {
 		
-		iBediener x = new Spiel();
-		x.addSpieler("kathi", eFarben.ROT);
-		x.addSpieler("akin", eFarben.BLAU);
-		x.addSpieler("yunus", eFarben.GELB);
-		x.addSpieler("stefano", eFarben.GRUEN);
+		iBediener bediener = new Spiel();
+		bediener.starteSpiel(4);
 
+		bediener.addSpieler("kathi",eFarben.ROT, false,(Spiel) bediener);
+		bediener.addSpieler("stefo", null, false,(Spiel)bediener);
+		bediener.addSpieler("akin",eFarben.GRUEN, false,(Spiel)bediener);
+		bediener.addSpieler("yunus",null, false,(Spiel)bediener);
+//		bediener.addSpieler(null, null, true, (Spiel)bediener);
+
+//		bediener.zeigeSpieler();
 		
-		x.starteSpiel();
-		x.wuerfeln();
-		System.out.println(x.werIstAmZug());
-		x.wuerfeln();
-		System.out.println(x.werIstAmZug());
-		x.wuerfeln();
-		System.out.println(x.werIstAmZug());
-		x.setzeFigurAufPos(x.werIstAmZug().getFiguren().get(0), 1);
-		System.out.println(x.werIstAmZug());
-		x.wuerfeln();
-		System.out.println(x.werIstAmZug());
-		x.wuerfeln();
-		
-		
-		
+		bediener.wuerfeln();
+		bediener.wuerfeln();
+
 	}
+
+	
 }
 

@@ -1,165 +1,303 @@
 package klassen;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
+
+
 /**
- * Spielbrett Klasse, Definiert das Spielbrett
+ * Spielbrett Klasse
  * @author Gruppe B-5
  * @version 1.0
  *
  */
 
 public class Spielbrett implements Serializable  {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private LinkedList<Spielfeld> spielbrett;
-	private ArrayList<Spielfeld> homerot;
-	private ArrayList<Spielfeld> zielrot;
-	private ArrayList<Spielfeld> homeblau;
-	private ArrayList<Spielfeld> zielblau;
-	private ArrayList<Spielfeld> homegruen;
-	private ArrayList<Spielfeld> zielgruen;
-	private ArrayList<Spielfeld> homegelb;
-	private ArrayList<Spielfeld> zielgelb;
-	
-  /**
-   * Konstruktor
-   * 
-   * Erzeugt das Spielbrett als LinkedList und Haus- und Zielfelder als Arrays
-   * 
-   */
-	
-	public Spielbrett(){	
-		
-		spielbrett = new LinkedList<Spielfeld>();
-		homerot = new ArrayList<Spielfeld>();
-		zielrot = new ArrayList<Spielfeld>();
-		homeblau = new ArrayList<Spielfeld>();
-		zielblau = new ArrayList<Spielfeld>();
-		homegruen = new ArrayList<Spielfeld>();
-		zielgruen = new ArrayList<Spielfeld>();
-		homegelb = new ArrayList<Spielfeld>();
-		zielgelb = new ArrayList<Spielfeld>();
-		
-		befuelleSpielbrett();
-		befuelleZiel();
-		befuelleHome();	
-	}
+
+
 
 	/**
+	 * Attribute
 	 * 
-	 * Methode befuelleSpielbrett()
-	 * 
-	 * Setzt Start- und Lauffelder vom gleichnamigen Typ auf das Spielbrett.
-	 * 
+	 * @param spielbrett
+	 * @param startBox
+	 * @param zielBox
 	 */
-	
-	private void befuelleSpielbrett(){	
-		for(int i=0;i<=40;i++){
-			
-			if( (i==1) || (i==11) || (i==21) || (i==31)){				
-				spielbrett.add(new Spielfeld(eFeldTyp.Startfeld));				
+
+	private Spielfeld[] spielbrett;
+	private Spielfeld[] homeRot;
+	private Spielfeld[] homeBlau;
+	private Spielfeld[] homeGruen;
+	private Spielfeld[] homeGelb;
+
+	private LinkedList<Spielfeld> zielRot;
+	private LinkedList<Spielfeld> zielBlau;
+	private LinkedList<Spielfeld> zielGruen;
+	private LinkedList<Spielfeld> zielGelb;
+
+	private Spielfeld spielfeld;
+	private Spielfigur spielfigur;
+
+	private int figurenAnzahl = 0;
+
+	/**
+	 * Konstruktor erstellt das Spielbrett mit allen Spielfeldern
+	 * 
+	 * @param feld
+	 */
+	public Spielbrett() {
+		spielbrett = new Spielfeld[41];
+		for (int i = 1; i <= 40; i++) {
+			spielbrett[i] = new Spielfeld(i);
+		}
+		homeRot = new Spielfeld[4];
+		homeBlau = new Spielfeld[4];
+		homeGruen = new Spielfeld[4];
+		homeGelb = new Spielfeld[4];
+		zielRot = new LinkedList<Spielfeld>();
+		zielBlau = new LinkedList<Spielfeld>();
+		zielGruen = new LinkedList<Spielfeld>();
+		zielGelb = new LinkedList<Spielfeld>();
+
+	}
+
+	public Spielfeld[] getSpielfigurBox(eFarben farbe) {
+
+		switch (farbe) {
+		case ROT:
+			for (int i = 0; i < 4; i++) {
+				if (this.homeRot[i] != null) {
+					this.homeRot[i].getFigur();
+					setFigurenAnzahl(i);
+				}
 			}
-			
-			if( ((i>1) && (i<11)) || ((i>11) && (i<21)) || ((i>21) && (i<31)) || ((i>31)) ){				
-				spielbrett.add(new Spielfeld(eFeldTyp.Lauffeld));				
-			}			
-		}				
-	}
-	
-	/**
-	 * 
-	 * Methode befuelleZiel()
-	 * 
-	 * Befuellt die Arrays der Zielfelder Spielfeldern vom Typ Zielfeld.
-	 * 
-	 */
-	
-	private void befuelleZiel(){		
-		for(int i=0;i<4;i++){
-			
-			zielrot.add(new Spielfeld(eFeldTyp.Zielfeld));		
-			zielblau.add(new Spielfeld(eFeldTyp.Zielfeld));	
-			zielgruen.add(new Spielfeld(eFeldTyp.Zielfeld));
-			zielgelb.add(new Spielfeld(eFeldTyp.Zielfeld));
-	}	
-}
-	
-	/**
-	 * 
-	 * Methode befuelleHome()
-	 * 
-	 * Befuellt die Arrays der Homefelder mit Spielfeldern vom Typ Homefeld.
-	 * 
-	 */
-	
-	private void befuelleHome(){		
-		for(int i=0;i<4;i++){
-			
-			homerot.add(new Spielfeld(eFeldTyp.Homefeld));	
-			homeblau.add(new Spielfeld(eFeldTyp.Homefeld));
-			homegruen.add(new Spielfeld(eFeldTyp.Homefeld));
-			homegelb.add(new Spielfeld(eFeldTyp.Homefeld));
-	}	
-}
-	
-	/**
-	 * 
-	 * Methode getSpielbrett()
-	 * 
-	 * Gibt das gesamte Spielbrett zurueck.
-	 * 
-	 * @return String des Spielbretts
-	 */
-	
-	public LinkedList<Spielfeld> getSpielbrett(){	
-			return spielbrett;
-	
-	}
-	
-	/**
-	 * 
-	 * Getter der Home und Ziellisten
-	 * 
-	 * @return ArrayList ArrayList der Home und Zielfelder
-	 */
-	
-	public ArrayList<Spielfeld> getHomerot() {
-		return homerot;
+			return this.getStartBoxRot();
+		case BLAU:
+			for (int i = 0; i < 4; i++) {
+				if (this.homeBlau[i] != null) {
+					this.homeBlau[i].getFigur();
+					setFigurenAnzahl(i);
+				}
+			}
+			return this.getStartBoxBlau();
+		case GRUEN:
+			for (int i = 0; i < 4; i++) {
+				if (this.homeGruen[i] != null) {
+					this.homeGruen[i].getFigur();
+					setFigurenAnzahl(i);
+				}
+			}
+			return this.getStartBoxGruen();
+		case GELB:
+			for (int i = 0; i < 4; i++) {
+				if (this.homeGelb[i] != null) {
+					this.homeGelb[i].getFigur();
+					setFigurenAnzahl(i);
+				}
+			}
+			return this.getStartBoxGelb();
+		}
+		return spielbrett;
 	}
 
-	public ArrayList<Spielfeld> getZielrot() {
-		return zielrot;
+	public int getFigurenAnzahl() {
+		return figurenAnzahl;
 	}
 
-	public ArrayList<Spielfeld> getHomeblau() {
-		return homeblau;
+	public void setFigurenAnzahl(int figurenAnzahl) {
+		this.figurenAnzahl = figurenAnzahl;
 	}
 
-	public ArrayList<Spielfeld> getZielblau() {
-		return zielblau;
+	public void besetzeSBmitFiguren(Spielfigur[] figuren, eFarben farbe) {
+		switch (farbe) {
+		case ROT:
+			this.setStartBoxRot(figuren);
+			break;
+		case BLAU:
+			this.setStartBoxBlau(figuren);
+			break;
+		case GRUEN:
+			this.setStartBoxGruen(figuren);
+			break;
+		case GELB:
+			this.setStartBoxGelb(figuren);
+			break;
+		}
 	}
 
-	public  ArrayList<Spielfeld> getHomegruen() {
-		return homegruen;
+	public Spielfeld[] getStartBoxRot() {
+		return homeRot;
 	}
 
-	public ArrayList<Spielfeld> getZielgruen() {
-		return zielgruen;
+	public Spielfeld[] getStartBoxBlau() {
+		return homeBlau;
+	}
+
+	public Spielfeld[] getStartBoxGruen() {
+		return homeGruen;
+	}
+
+	public Spielfeld[] getStartBoxGelb() {
+		return homeGelb;
+	}
+
+	private void setStartBoxRot(Spielfigur[] sp) {
+		for (int i = 0; i < 4; i++) {
+			if (this.homeRot[i] == null) {
+				this.homeRot[i] = new Spielfeld(i, sp[i]);
+			}
+		}
+	}
+
+	private void setStartBoxBlau(Spielfigur[] sp) {
+		for (int i = 0; i < 4; i++) {
+			if (this.homeBlau[i] == null) {
+				this.homeBlau[i] = new Spielfeld(i, sp[i]);
+			}
+		}
+	}
+
+	private void setStartBoxGruen(Spielfigur[] sp) {
+		for (int i = 0; i < 4; i++) {
+			if (this.homeGruen[i] == null) {
+				this.homeGruen[i] = new Spielfeld(i, sp[i]);
+			}
+		}
+	}
+
+	private void setStartBoxGelb(Spielfigur[] sp) {
+		for (int i = 0; i < 4; i++) {
+			if (this.homeGelb[i] == null) {
+				this.homeGelb[i] = new Spielfeld(i, sp[i]);
+			}
+		}
+	}
+
+	public Spielfeld getSpielfeld(int id) {
+		if (id > 40) {
+			id = id - 40;
+		}
+		return spielbrett[id];
+	}
+
+	public void setzeSpielfeld(int id, Spielfigur figur) {
+		this.spielbrett[id] = new Spielfeld(id, figur);
+	}
+
+	public LinkedList<Spielfeld> getZielBoxRot() {
+		return zielRot;
+	}
+
+	public LinkedList<Spielfeld> getZielBoxBlau() {
+		return zielBlau;
+	}
+
+	public LinkedList<Spielfeld> getZielBoxGruen() {
+		return zielGruen;
+	}
+
+	public LinkedList<Spielfeld> getZielBoxGelb() {
+		return zielGelb;
+	}
+
+	private void setZielBoxRot(int id, Spielfigur figur) {
+		for (int i = 0; i < 4; i++) {
+			zielRot.add(new Spielfeld(id, figur));
+			this.zielRot.set(id, spielfeld);
+		}
+	}
+
+	private void setZielBoxBlau(int id, Spielfigur figur) {
+		for (int i = 0; i < 4; i++) {
+			zielBlau.add(new Spielfeld(id, figur));
+			this.zielBlau.set(id, spielfeld);
+		}
+	}
+
+	private void setZielBoxGruen(int id, Spielfigur figur) {
+		for (int i = 0; i < 4; i++) {
+			zielGruen.add(new Spielfeld(id, figur));
+			this.zielGruen.set(id, spielfeld);
+		}
+	}
+
+	private void setZielBoxGelb(int id, Spielfigur figur) {
+		for (int i = 0; i < 4; i++) {
+			zielGelb.add(new Spielfeld(id, figur));
+			this.zielGelb.set(id, spielfeld);
+		}
+	}
+
+	public LinkedList<Spielfeld> getZielBox(eFarben farbe) {
+
+		switch (farbe) {
+		case ROT:
+			return this.getZielBoxRot();
+		case BLAU:
+			return this.getZielBoxBlau();
+		case GRUEN:
+			return this.getZielBoxGruen();
+		case GELB:
+			return this.getZielBoxGelb();
+		}
+		return getZielBoxRot();
+	}
+
+	public void getSpielbrett() {
+
+		for (int i = 1; i <= 40; i++) {
+			System.out.println("Spielfeld: "
+					+ spielbrett[i].getid() + " hat  Figur "
+					+ spielbrett[i].getFigur());
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (this.homeGelb[i] != null) {
+				System.out.println("HomeGelb und  "
+						+ homeGelb[i].getid() + " hat  Figur "
+						+ homeGelb[i].getFigur());
+			}
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (this.homeRot[i] != null)
+				System.out.println("HomeRot "
+						+ homeRot[i].getid() + " hat Figur "
+						+ homeRot[i].getFigur());
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (this.homeGruen[i] != null)
+				System.out.println("HomeGruen "
+						+ homeGruen[i].getid() + " hat Figur "
+						+ homeGruen[i].getFigur());
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (this.homeBlau[i] != null)
+				System.out.println("HomeBlau "
+						+ homeBlau[i].getid() + " hat Figur? "
+						+ homeBlau[i].getFigur());
+		}
+
+	}
+
+	public void FigurZurueck(eFarben farbe, Spielfigur figur) {
+		getSpielfigurBox(farbe);
+		for (int i = 0; i < 4; i++) {
+			if (getSpielfigurBox(farbe)[i] == null) {
+				figur.setPosition(0);
+				figur.setCounter(0);
+				getSpielfigurBox(farbe)[i].setFigur(figur);
+			}
+		}
 	}
 	
-	public ArrayList<Spielfeld> getHomegelb() {
-		return homegelb;
-	}
-	
-	public ArrayList<Spielfeld> getZielgelb() {
-		return zielgelb;
-	}
+
 	
 }
